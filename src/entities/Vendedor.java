@@ -39,7 +39,7 @@ public class Vendedor extends Persona{
 
     public void removePropiedad(Propiedad p){
         for(Propiedad pr : propiedades){
-            if(pr.getid() == p.getid()){
+            if(pr.equals(p)){
                 propiedades.remove(p);
             }
         }
