@@ -1,9 +1,8 @@
-import entities.CentroContratos;
-import entities.ContratoArriendo;
-import entities.ContratoCompra;
-import entities.ContratoVenta;
+import entities.*;
 import interfaces.IContrato;
 import repositories.ContratoRepositorio;
+import repositories.PersonaRepositorio;
+import repositories.PropiedadRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,27 @@ public class Main {
         List <CentroContratos> listaContratos =contratos.getData();
         for(CentroContratos c: listaContratos){
             System.out.println(c);
+        }
+
+
+        PersonaRepositorio personas = new PersonaRepositorio("src/files/clientes.txt");
+
+        personas.insertData(new Persona(2, "Cata", "Pérez", "1010"));
+        personas.insertData(new Persona(1, "Nicolás", "Torres", "1234"));
+
+        List<Persona> listaPersonas = personas.getData();
+        for(Persona p: listaPersonas){
+            System.out.println(p);
+        }
+
+
+        PropiedadRepositorio propiedades = new PropiedadRepositorio("src/files/propiedades.txt", "|");
+        propiedades.insertData(new Propiedad(1, "Casa", "Bogota", "Arrendada", 423434, 555.32f));
+        propiedades.insertData(new Propiedad(3, "Lote", "Cajicá variante", "Extinción", 0, 120));
+
+        List<Propiedad> listaPropiedades =propiedades.getData();
+        for(Propiedad p: listaPropiedades){
+            System.out.println(p);
         }
 
 

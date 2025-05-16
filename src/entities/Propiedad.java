@@ -8,6 +8,15 @@ public class Propiedad {
     protected double precio;
     protected float areaMSq;
 
+    public Propiedad(int id, String tipo, String direccion, String estado, double precio, float areaMSq) {
+        this.id = id;
+        this.tipo = tipo;
+        this.direccion = direccion;
+        this.estado = estado;
+        this.precio = precio;
+        this.areaMSq = areaMSq;
+    }
+
     public int getId() {
         return id;
     }

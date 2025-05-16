@@ -1,1 +1,3 @@
-4|Venta|500|disponible|56Bog
+
+1|Alquiler|1500000|Activo|Notaría 12
+2|CompraVenta|3000000|Finalizado|Notaría 5
