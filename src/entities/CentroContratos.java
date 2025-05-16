@@ -1,6 +1,8 @@
 package entities;
 
-public abstract class CentroContratos implements IContrato{
+import interfaces.IContrato;
+
+public class CentroContratos implements IContrato {
     //ATRIBUTOS
     protected int id;
     protected String tipo;
@@ -18,6 +20,7 @@ public abstract class CentroContratos implements IContrato{
     }
 
     //METODOS
+
     public int getId() {
         return id;
     }
@@ -47,5 +50,17 @@ public abstract class CentroContratos implements IContrato{
     }
     public void setNotaria(String notaria) {
         this.notaria = notaria;
+    }
+
+
+    //Estos son métodos abstractos en la implementación!!!
+    @Override
+    public void crearContrato() {
+
+    }
+
+    @Override
+    public void imprimirContratos() {
+
     }
 }

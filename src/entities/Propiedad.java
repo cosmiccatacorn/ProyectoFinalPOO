@@ -1,6 +1,6 @@
 package entities;
 
-public abstract class Propiedad {
+public class Propiedad {
     protected int id;
     protected String tipo;
     protected String direccion;
