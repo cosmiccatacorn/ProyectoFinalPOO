@@ -63,4 +63,15 @@ public class CentroContratos implements IContrato {
     public void imprimirContratos() {
 
     }
+
+    @Override
+    public String toString() {
+        return "CentroContratos{" +
+                "id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", monto=" + monto +
+                ", estado='" + estado + '\'' +
+                ", notaria='" + notaria + '\'' +
+                '}';
+    }
 }

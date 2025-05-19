@@ -1,7 +1,6 @@
 import entities.*;
-import interfaces.IContrato;
 import repositories.ContratoRepositorio;
-import repositories.PersonaRepositorio;
+import repositories.ClienteRepositorio;
 import repositories.PropiedadRepositorio;
 
 import java.util.ArrayList;
@@ -13,26 +12,23 @@ public class Main {
         ContratoRepositorio contratos = new ContratoRepositorio();
 
         // Agregar contratos de diferentes tipos
-        contratos.insertData(new ContratoCompra(1, 1000000, "Activo", "Notaría 5", "2025-01-01"));
-        contratos.insertData(new ContratoVenta(2, 1500000, "Finalizado", "Notaría 7", "2025-02-15"));
-        contratos.insertData(new ContratoArriendo(3, 500000, "En trámite", "Notaría 3", "2025-03-01"));
+        contratos.insertData(new ContratoCompra(5, 1000000, "Activo", "Notaría 5", "2025-01-01"));
+        contratos.insertData(new ContratoVenta(6, 1500000, "Finalizado", "Notaría 7", "2025-02-15"));
+        contratos.insertData(new ContratoArriendo(7, 500000, "En trámite", "Notaría 3", "2025-03-01"));
 
         //Leer data
-        List <CentroContratos> listaContratos =contratos.getData();
+        ArrayList <CentroContratos> listaContratos = new ArrayList<>();
+        listaContratos = contratos.getData();
+
+
+
         for(CentroContratos c: listaContratos){
             System.out.println(c);
         }
 
 
-        PersonaRepositorio personas = new PersonaRepositorio("src/files/clientes.txt");
+        ClienteRepositorio clientes = new ClienteRepositorio("src/files/clientes.txt");
 
-        personas.insertData(new Persona(2, "Cata", "Pérez", "1010"));
-        personas.insertData(new Persona(1, "Nicolás", "Torres", "1234"));
-
-        List<Persona> listaPersonas = personas.getData();
-        for(Persona p: listaPersonas){
-            System.out.println(p);
-        }
 
 
         PropiedadRepositorio propiedades = new PropiedadRepositorio("src/files/propiedades.txt", "|");
