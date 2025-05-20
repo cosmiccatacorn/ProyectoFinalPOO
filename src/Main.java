@@ -1,3 +1,4 @@
+import DAOs.ClientesDAO;
 import entities.*;
 import interfaces.IContrato;
 import repositories.ContratoRepositorio;
@@ -10,9 +11,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        /*
         ContratoRepositorio contratos = new ContratoRepositorio();
 
-        // Agregar contratos de diferentes tipos
+        //Agregar contratos de diferentes tipos
         contratos.insertData(new ContratoCompra(1, 1000000, "Activo", "Notaría 5", "2025-01-01"));
         contratos.insertData(new ContratoVenta(2, 1500000, "Finalizado", "Notaría 7", "2025-02-15"));
         contratos.insertData(new ContratoArriendo(3, 500000, "En trámite", "Notaría 3", "2025-03-01"));
@@ -22,6 +24,7 @@ public class Main {
         for(CentroContratos c: listaContratos){
             System.out.println(c);
         }
+
 
 
         PersonaRepositorio personas = new PersonaRepositorio("src/files/clientes.txt");
@@ -43,6 +46,24 @@ public class Main {
         for(Propiedad p: listaPropiedades){
             System.out.println(p);
         }
+
+         */
+
+        ClientesDAO dao = new ClientesDAO();
+
+        // Agregar
+        Cliente nuevo = new Cliente(105, "Laura", "Gómez", "789456123", 3000000);
+        dao.agregarCliente(nuevo);
+
+        // Buscar
+        Cliente encontrado = dao.buscarClientePorId(105);
+        if (encontrado != null) {
+            System.out.println("Cliente: " + encontrado.getNombre() + " " + encontrado.getApellido());
+        }
+
+        // Eliminar
+        dao.eliminarCliente(105);
+
 
 
     }

@@ -20,7 +20,6 @@ public class CentroContratos implements IContrato {
     }
 
     //METODOS
-
     public int getId() {
         return id;
     }

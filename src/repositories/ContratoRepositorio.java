@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class ContratoRepositorio extends Repositorio implements IRepositorio<CentroContratos> {
+
     public ContratoRepositorio() {
         super("src/files/contratos.txt", "|");
     }
