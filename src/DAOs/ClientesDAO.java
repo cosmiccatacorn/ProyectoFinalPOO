@@ -17,7 +17,7 @@ public class ClientesDAO {
             String linea;
 
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split("|");
+                String[] partes = linea.split("//|");//USO DOS // PARA QUE LO TOME COMO UN SEPARDOR
                 if (partes.length == 5) {
                     int id = Integer.parseInt(partes[0]);
                     String nombre = partes[1];
@@ -40,8 +40,8 @@ public class ClientesDAO {
     public void guardarClientes(List<Cliente> clientes) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoClientes))) {
             for (Cliente c : clientes) {
-                String linea = c.getId() + ";" + c.getNombre() + ";" + c.getApellido() + ";" +
-                        c.getCedula() + ";" + c.getPresupuesto();
+                String linea = c.getId() + "|" + c.getNombre() + "|" + c.getApellido() + "|" +
+                        c.getCedula() + "|" + c.getPresupuesto();
                 bw.write(linea);
                 bw.newLine();
             }

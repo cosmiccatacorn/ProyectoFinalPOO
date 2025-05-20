@@ -4,3 +4,6 @@
 4|CompraVenta|5000000|Activo|Notaría 3
 
 
+1|Compra|1000000.0|Activo|Notaría 5
+2|Venta|1500000.0|Finalizado|Notaría 7
+3|Arriendo|500000.0|En trámite|Notaría 3

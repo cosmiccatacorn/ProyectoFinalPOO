@@ -1,10 +1,9 @@
+import DAOs.ClientesDAO;
 import entities.*;
-import interfaces.IContrato;
 import repositories.ContratoRepositorio;
-import repositories.PersonaRepositorio;
+
 import repositories.PropiedadRepositorio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -24,14 +23,12 @@ public class Main {
         }
 
 
-        PersonaRepositorio personas = new PersonaRepositorio("src/files/clientes.txt");
+        ClientesDAO clientesDAO = new ClientesDAO();
+        clientesDAO.agregarCliente(new Cliente(10, "Laura", "López", "1111", 1000000));
 
-        personas.insertData(new Persona(2, "Cata", "Pérez", "1010"));
-        personas.insertData(new Persona(1, "Nicolás", "Torres", "1234"));
-
-        List<Persona> listaPersonas = personas.getData();
-        for(Persona p: listaPersonas){
-            System.out.println(p);
+        List<Cliente> lista = clientesDAO.cargarClientes();
+        for (Cliente c : lista) {
+            System.out.println(c.getNombre());
         }
 
 
@@ -43,7 +40,5 @@ public class Main {
         for(Propiedad p: listaPropiedades){
             System.out.println(p);
         }
-
-
     }
 }
