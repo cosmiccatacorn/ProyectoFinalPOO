@@ -1,9 +1,14 @@
-1|Alquiler|1500000|Activo|Notaría 12
-2|CompraVenta|3000000|Finalizado|Notaría 5
-3|Alquiler|2000000|Activo|Notaría 8
-4|CompraVenta|5000000|Activo|Notaría 3
+1|Alquiler|Bogotá|Activo|170000000|50*50
+2|CompraVenta|Medellín|Finalizado|3000000|40*30
+3|Alquiler|Bucaramanga|Activo|2000000|25*35
+4|CompraVenta|Cali|Activo|5000000|60*45
+5|Compra|Cartagena|Activo|1000000|20*25
+6|Venta|Pereira|Finalizado|1500000|30*30
+7|Arriendo|Barranquilla|En trámite|500000|15*20
 
-
+1|Compra|1000000.0|Activo|Notaría 5
+2|Venta|1500000.0|Finalizado|Notaría 7
+3|Arriendo|500000.0|En trámite|Notaría 3
 1|Compra|1000000.0|Activo|Notaría 5
 2|Venta|1500000.0|Finalizado|Notaría 7
 3|Arriendo|500000.0|En trámite|Notaría 3

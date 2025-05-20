@@ -5,10 +5,10 @@ public class Propiedad {
     protected String tipo;
     protected String direccion;
     protected String estado;
-    protected double precio;
-    protected float areaMSq;
+    protected String precio;
+    protected String areaMSq;
 
-    public Propiedad(int id, String tipo, String direccion, String estado, double precio, float areaMSq) {
+    public Propiedad(int id, String tipo, String direccion, String estado, String precio, String areaMSq) {
         this.id = id;
         this.tipo = tipo;
         this.direccion = direccion;
@@ -16,6 +16,8 @@ public class Propiedad {
         this.precio = precio;
         this.areaMSq = areaMSq;
     }
+
+
 
     public int getId() {
         return id;
@@ -49,19 +51,16 @@ public class Propiedad {
         this.estado = estado;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
-
-    public void setPrecio(double precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
-
-    public float getAreaMSq() {
+    public String getAreaMSq() {
         return areaMSq;
     }
-
-    public void setAreaMSq(float areaMSq) {
+    public void setAreaMSq(String areaMSq) {
         this.areaMSq = areaMSq;
     }
 }
