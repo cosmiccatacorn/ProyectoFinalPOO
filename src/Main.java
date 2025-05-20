@@ -3,6 +3,7 @@ import entities.*;
 import repositories.ContratoRepositorio;
 import repositories.PropiedadRepositorio;
 import java.util.List;
+//comentario
 
 public class Main {
     public static void main(String[] args) {
