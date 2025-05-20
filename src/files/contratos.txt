@@ -2,3 +2,5 @@
 2|CompraVenta|3000000|Finalizado|Notaría 5
 3|Alquiler|2000000|Activo|Notaría 8
 4|CompraVenta|5000000|Activo|Notaría 3
+
+

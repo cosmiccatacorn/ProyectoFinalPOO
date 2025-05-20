@@ -16,24 +16,32 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
     @Override
     public ArrayList<CentroContratos> getData() {
         ArrayList<CentroContratos> contratos = null;
-        ArrayList<String> lines = this.fileManager.getDataFile();
+        ArrayList<String> lines = fileManager.getDataFile();
         if (lines != null) {
+            System.out.println("Contratos encontrados");
             contratos = new ArrayList<>();
             for (String line : lines) {
-                StringTokenizer tokens = new StringTokenizer(line, this.delimitador);
-
-                return null;
+                //id|tipo|monto|estado|notaria
+                StringTokenizer tokens = new StringTokenizer(line, super.delimitador);
+                int id = Integer.parseInt(tokens.nextToken());
+                String tipo = tokens.nextToken();
+                double valor = Double.parseDouble(tokens.nextToken());
+                String estado = tokens.nextToken();
+                String notaria = tokens.nextToken();
+                CentroContratos c = new CentroContratos(id, tipo, valor, estado, notaria);
+                contratos.add(c);
             }
-
+            return contratos;
         }
-        return contratos;
+        return null;
     }
 
     @Override
     public void insertData(CentroContratos c) {
         // id|tipo|monto|estado|notaria
-            String line = c.getId() + '|' + c.getTipo() + '|' + c.getMonto() +
-                    '|'+c.getEstado() + '|' + c.getNotaria();
+            String line = c.getId() + "|" + c.getTipo() + '|' + c.getMonto() +
+                    '|'+c.getEstado() + '|' + c.getNotaria() + "\n";
+            System.out.println(line);
             boolean insert = this.fileManager.writeFile(line);
             if (insert){
                 System.out.println("Se registró el contrato con éxito!");
