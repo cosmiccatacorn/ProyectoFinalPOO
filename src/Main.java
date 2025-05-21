@@ -23,7 +23,7 @@ public class Main {
 
         PropiedadRepositorio propiedades = new PropiedadRepositorio("src/files/propiedades.txt", "|");
         propiedades.insertData(new Propiedad(1, "Casa", "Bogota", "Arrendada", "23874623", "550 METROS CUADRADOS"));
-        propiedades.insertData(new Propiedad(3, "Lote", "Cajicá variante", "Extinción", "238746", "4000 METROS CUADRADOS"));
+        propiedades.insertData(new Propiedad(3, "Lote", "Cajica variante", "Extinción", "238746", "4000 METROS CUADRADOS"));
 
         List<Propiedad> listaPropiedades =propiedades.getData();
         for(Propiedad p: listaPropiedades){
