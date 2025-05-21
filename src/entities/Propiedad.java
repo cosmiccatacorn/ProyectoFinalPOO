@@ -1,14 +1,14 @@
 package entities;
 
-public class Propiedad {
+public abstract class Propiedad {
     protected int id;
     protected String tipo;
     protected String direccion;
     protected String estado;
-    protected String precio;
-    protected String areaMSq;
+    protected double precio;
+    protected float areaMSq;
 
-    public Propiedad(int id, String tipo, String direccion, String estado, String precio, String areaMSq) {
+    public Propiedad(int id, String tipo, String direccion, String estado, double precio, float areaMSq) {
         this.id = id;
         this.tipo = tipo;
         this.direccion = direccion;

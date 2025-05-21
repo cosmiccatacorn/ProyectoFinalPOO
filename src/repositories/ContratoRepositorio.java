@@ -1,7 +1,7 @@
 package repositories;
 
 import entities.CentroContratos;
-import interfaces.IContrato;
+import entities.Persona;
 import interfaces.IRepositorio;
 
 import java.util.ArrayList;
@@ -9,13 +9,21 @@ import java.util.StringTokenizer;
 
 public class ContratoRepositorio extends Repositorio implements IRepositorio<CentroContratos> {
 
+    private ClienteRepositorio clientesRepo;
+    private PropietarioRepositorio vendedoresRepo;
+
     public ContratoRepositorio() {
         super("src/files/contratos.txt", "|");
+        clientesRepo  = new ClienteRepositorio("src/files/clientes.txt");
+        vendedoresRepo = new PropietarioRepositorio("src/files/vendedores.txt", "|");
     }
 
     @Override
     public ArrayList<CentroContratos> getData() {
         ArrayList<CentroContratos> contratos = null;
+        ArrayList<Persona> personas = new ArrayList<>();
+        personas.addAll(this.clientesRepo.getData());
+        personas.addAll(this.vendedoresRepo.getData());
         ArrayList<String> lines = fileManager.getDataFile();
         if (lines != null) {
             System.out.println("Contratos encontrados");
@@ -27,7 +35,15 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
                 String tipo = tokens.nextToken();
                 double valor = Double.parseDouble(tokens.nextToken());
                 String estado = tokens.nextToken();
-                CentroContratos c = new CentroContratos(id, tipo, valor, estado);
+                String notaria = tokens.nextToken();
+                String nombrePersona = tokens.nextToken();
+                Persona p = null;
+                for (Persona persona: personas){
+                    if(persona.getNombre().equals(nombrePersona)){
+                        p = persona;
+                    }
+                }
+                CentroContratos c = new CentroContratos(id, tipo, valor, estado, notaria, p);
                 contratos.add(c);
             }
             return contratos;
@@ -37,9 +53,9 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
 
     @Override
     public void insertData(CentroContratos c) {
-        // id|tipo|monto|estado|notaria
-            String line = c.getId() + "|" + c.getTipo() + '|' + c.getMonto() +
-                    '|'+c.getEstado() +  "\n";
+        // id|tipo|monto|estado|notaria|Persona.nombre
+            String line = c.getId() + "|" + c.getTipo() + "|" + c.getMonto() +
+                    "|"+c.getEstado() + "|" + c.getNotaria() + "|"+ c.getPersona().getNombre()+ "\n";
             System.out.println(line);
             boolean insert = this.fileManager.writeFile(line);
             if (insert){

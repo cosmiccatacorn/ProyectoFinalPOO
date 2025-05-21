@@ -1,17 +1,50 @@
 package DAOs;
 
 import entities.Cliente;
+import interfaces.IDAO;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ClientesDAO {
+public class ClientesDAO implements IDAO<Cliente> {
+
+    @Override
+    public Cliente searchById(int id) {
+        return null;
+    }
+
+    @Override
+    public void create(Cliente instance) {
+
+    }
+
+    @Override
+    public ArrayList<Cliente> read() {
+        return null;
+    }
+
+    @Override
+    public void update(int id, Cliente instance) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void delete(Cliente instance) {
+
+    }
+
     private final String archivoClientes = "files/clientes.txt";
 
     public List<Cliente> cargarClientes() {
         List<Cliente> clientes = new ArrayList<>();
+
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivoClientes))) {
             String linea;

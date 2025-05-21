@@ -7,11 +7,44 @@ public class Apartamento extends Propiedad{
     private int numBanos;
     private int numHabitaciones;
 
-    public Apartamento(int id, String tipo, String direccion, String estado, String precio, String areaMSq, int idApartamento, String edificio, int numBanos, int numHabitaciones) {
+    public Apartamento(int id, String tipo, String direccion, String estado, double precio, float areaMSq, int idApartamento, String edificio, int numBanos, int numHabitaciones) {
         super(id, tipo, direccion, estado, precio, areaMSq);
         this.idApartamento = idApartamento;
         this.edificio = edificio;
         this.numBanos = numBanos;
         this.numHabitaciones = numHabitaciones;
     }
+
+    public int getIdApartamento() {
+        return idApartamento;
+    }
+
+    public void setIdApartamento(int idApartamento) {
+        this.idApartamento = idApartamento;
+    }
+
+    public String getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
+    }
+
+    public int getNumBanos() {
+        return numBanos;
+    }
+
+    public void setNumBanos(int numBanos) {
+        this.numBanos = numBanos;
+    }
+
+    public int getNumHabitaciones() {
+        return numHabitaciones;
+    }
+
+    public void setNumHabitaciones(int numHabitaciones) {
+        this.numHabitaciones = numHabitaciones;
+    }
 }
+

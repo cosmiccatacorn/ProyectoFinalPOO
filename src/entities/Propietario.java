@@ -3,18 +3,18 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vendedor extends Persona{
+public class Propietario extends Persona{
 
     private List<Propiedad>propiedades;
     private int cantidadPropiedades;
 
-    public Vendedor(int id, String nombre, String apellido, String cedula, List<Propiedad> propiedades) {
+    public Propietario(int id, String nombre, String apellido, String cedula, List<Propiedad> propiedades) {
         super(id, nombre, apellido, cedula);
         this.propiedades = propiedades;
         cantidadPropiedades = propiedades.size();
     }
 
-    public Vendedor(int id, String nombre, String apellido, String cedula) {
+    public Propietario(int id, String nombre, String apellido, String cedula) {
         super(id, nombre, apellido, cedula);
         propiedades = new ArrayList<>();
         cantidadPropiedades = 0;

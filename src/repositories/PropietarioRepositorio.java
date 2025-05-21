@@ -1,22 +1,21 @@
 package repositories;
 
-import entities.CentroContratos;
 import entities.Propiedad;
-import entities.Vendedor;
+import entities.Propietario;
 import interfaces.IRepositorio;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class VendedorRepositorio extends Repositorio implements IRepositorio<Vendedor> {
+public class PropietarioRepositorio extends Repositorio implements IRepositorio<Propietario> {
 
-    public VendedorRepositorio(String path, String delimitador) {
+    public PropietarioRepositorio(String path, String delimitador) {
         super(path, delimitador);
     }
 
     @Override
-    public ArrayList<Vendedor> getData() {
-        ArrayList<Vendedor> vendedores = new ArrayList<>();
+    public ArrayList<Propietario> getData() {
+        ArrayList<Propietario> vendedores = new ArrayList<>();
         ArrayList<String> lines = fileManager.getDataFile();
         if (lines != null) {
             System.out.println("Contratos encontrados");
@@ -28,13 +27,13 @@ public class VendedorRepositorio extends Repositorio implements IRepositorio<Ven
                 String nombre = tokens.nextToken();
                 String apellido = (tokens.nextToken());
                 String cedula= tokens.nextToken();
-                if(tokens.hasMoreTokens()){
+                if(!tokens.nextToken().equals(null)){
                     ArrayList<Propiedad> propiedades = new ArrayList<>();
                     //Agregar las propiedades al arraylist con el repositorio de propiedades
-                    Vendedor v = new Vendedor(id, nombre, apellido, cedula, propiedades);
+                    Propietario v = new Propietario(id, nombre, apellido, cedula, propiedades);
 
                 }
-                Vendedor v = new Vendedor(id, nombre, apellido, cedula);
+                Propietario v = new Propietario(id, nombre, apellido, cedula);
                 vendedores.add(v);
             }
             return vendedores;
@@ -43,7 +42,17 @@ public class VendedorRepositorio extends Repositorio implements IRepositorio<Ven
     }
 
     @Override
-    public void insertData(Vendedor vendedor) {
+    public void insertData(Propietario v) {
+        // id|nombre|apellido|cedula|presupuesto
+        String line = v.getId() + "|" + v.getNombre() + "|" + v.getApellido() +
+                "|"+v.getCedula() + "|" + (v.getCantidadPropiedades()== 0 ? v.getPropiedades():null);
+        boolean insert = this.fileManager.writeFile(line);
+        if (insert){
+            System.out.println("Se agregó la persona con exito");
+        }else {
+            System.out.println("Ha ocurrido un error!");
+        }
+
 
     }
 }

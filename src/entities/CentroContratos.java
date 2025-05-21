@@ -8,16 +8,29 @@ public class CentroContratos implements IContrato {
     protected String tipo;
     protected double monto;
     protected String estado;
+    protected String notaria;
+    protected Persona persona;
 
     //CONSTRUCTOR
-    public CentroContratos(int id, String tipo, double monto, String estado) {
+    public CentroContratos(int id, String tipo, double monto, String estado, String notaria, Persona persona) {
         this.id = id;
         this.tipo = tipo;
         this.monto = monto;
         this.estado = estado;
+        this.notaria = notaria;
+        this.persona = persona;
     }
 
     //METODOS
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
     public int getId() {
         return id;
     }
@@ -42,6 +55,12 @@ public class CentroContratos implements IContrato {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    public String getNotaria() {
+        return notaria;
+    }
+    public void setNotaria(String notaria) {
+        this.notaria = notaria;
+    }
 
 
     //Estos son métodos abstractos en la implementación!!!
@@ -62,6 +81,7 @@ public class CentroContratos implements IContrato {
                 ", tipo='" + tipo + '\'' +
                 ", monto=" + monto +
                 ", estado='" + estado + '\'' +
+                ", notaria='" + notaria + '\'' +
                 '}';
     }
 }

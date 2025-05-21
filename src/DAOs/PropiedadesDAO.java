@@ -1,12 +1,44 @@
 package DAOs;
 
 import entities.Propiedad;
+import interfaces.IDAO;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropiedadesDAO {
+public class PropiedadesDAO implements IDAO<Propiedad> {
+
+    @Override
+    public Propiedad searchById(int id) {
+        return null;
+    }
+
+    @Override
+    public void create(Propiedad instance) {
+
+    }
+
+    @Override
+    public ArrayList<Propiedad> read() {
+        return null;
+    }
+
+    @Override
+    public void update(int id, Propiedad instance) {
+
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void delete(Propiedad instance) {
+
+    }
+
     private final String archivoPropiedades = "files/contratos.txt";
 
     public List<Propiedad> cargarPropiedades() {
