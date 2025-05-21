@@ -27,8 +27,7 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
                 String tipo = tokens.nextToken();
                 double valor = Double.parseDouble(tokens.nextToken());
                 String estado = tokens.nextToken();
-                String notaria = tokens.nextToken();
-                CentroContratos c = new CentroContratos(id, tipo, valor, estado, notaria);
+                CentroContratos c = new CentroContratos(id, tipo, valor, estado);
                 contratos.add(c);
             }
             return contratos;
@@ -40,7 +39,7 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
     public void insertData(CentroContratos c) {
         // id|tipo|monto|estado|notaria
             String line = c.getId() + "|" + c.getTipo() + '|' + c.getMonto() +
-                    '|'+c.getEstado() + '|' + c.getNotaria() + "\n";
+                    '|'+c.getEstado() +  "\n";
             System.out.println(line);
             boolean insert = this.fileManager.writeFile(line);
             if (insert){

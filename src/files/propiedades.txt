@@ -1,2 +1,7 @@
-1|Laura|Ramírez|laura.ramirez@email.com|3123456789
-2|Carlos|Mejía|carlos.mejia@email.com|3109988776
+1|Alquiler|Bogota|Activo|170000000|50*50
+2|CompraVenta|Medellín|Finalizado|3000000|40*30
+3|Alquiler|Bucaramanga|Activo|2000000|25*35
+4|CompraVenta|Cali|Activo|5000000|60*45
+5|Compra|Cartagena|Activo|1000000|20*25
+6|Venta|Pereira|Finalizado|1500000|30*30
+7|Arriendo|Barranquilla|En trámite|500000|15*20
