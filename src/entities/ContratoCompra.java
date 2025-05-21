@@ -5,7 +5,7 @@ public class ContratoCompra extends CentroContratos{
     private String fechaCompra;
 
     public ContratoCompra(int id, double monto, String estado, String notaria, String fechaCompra) {
-        super(id, "Compra", monto, estado, notaria);
+        super(id, "Compra", monto, estado);
         this.fechaCompra = fechaCompra;
     }
 
@@ -14,7 +14,7 @@ public class ContratoCompra extends CentroContratos{
 
 
     public void crearContrato() {
-        System.out.println("Creando contrato de compra en notaría " + notaria);
+        System.out.println("Creando contrato de compra en notaría ");
     }
 
     public void imprimirContratos() {

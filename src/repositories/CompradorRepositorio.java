@@ -1,24 +1,23 @@
 package repositories;
 
-import entities.Cliente;
-import entities.Persona;
+import entities.Comprador;
 import interfaces.IRepositorio;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class ClienteRepositorio extends Repositorio implements IRepositorio<Cliente> {
+public class CompradorRepositorio extends Repositorio implements IRepositorio<Comprador> {
 
-    public ClienteRepositorio(String path) {
+    public CompradorRepositorio(String path) {
         super(path, "|");
     }
 
     @Override
-    public ArrayList<Cliente> getData() {
-        ArrayList<Cliente> clientes = null;
+    public ArrayList<Comprador> getData() {
+        ArrayList<Comprador> compradors = null;
         ArrayList<String> lines = this.fileManager.getDataFile();
         if (lines != null) {
-            clientes = new ArrayList<>();
+            compradors = new ArrayList<>();
             for (String line : lines) {
                 StringTokenizer tokens = new StringTokenizer(line, this.delimitador);
 
@@ -28,12 +27,12 @@ public class ClienteRepositorio extends Repositorio implements IRepositorio<Clie
 
         }
 
-        return clientes;
+        return compradors;
     }
 
 
     @Override
-    public void insertData(Cliente p) {
+    public void insertData(Comprador p) {
         // id|nombre|apellido|cedula
         String line = p.getId() + "|" + p.getNombre() + '|' + p.getApellido() +
                 '|'+p.getCedula();

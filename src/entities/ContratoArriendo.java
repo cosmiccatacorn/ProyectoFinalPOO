@@ -4,7 +4,7 @@ public class ContratoArriendo extends CentroContratos{
     private String fechaInicioArriendo;
 
     public ContratoArriendo(int id, double monto, String estado, String notaria, String fechaInicioArriendo) {
-        super(id, "Arriendo", monto, estado, notaria);
+        super(id, "Arriendo", monto, estado);
         this.fechaInicioArriendo = fechaInicioArriendo;
     }
 
@@ -15,7 +15,7 @@ public class ContratoArriendo extends CentroContratos{
 
     @Override
     public void crearContrato() {
-        System.out.println("Creando contrato de arriendo en notaría " + notaria);
+        System.out.println("Creando contrato de arriendo en notaría " );
     }
 
     @Override
