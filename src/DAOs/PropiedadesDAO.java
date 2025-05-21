@@ -6,8 +6,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropiedadesDAO {
-    private final String archivoPropiedades = "files/contratos.txt";
+public abstract class PropiedadesDAO {
+    private final String archivoPropiedades = "files/propiedades.txt";
 
     public List<Propiedad> cargarPropiedades() {
         List<Propiedad> contratos = new ArrayList<>();
@@ -21,7 +21,7 @@ public class PropiedadesDAO {
                     int id = Integer.parseInt(partes[0]);
                     String tipo = partes[1];
                     String direccion = partes[2];
-                    String estado = partes[3]; 
+                    String estado = partes[3];
                     String  precio = partes[4];
                     String areaMSq = partes[5];
 
@@ -45,7 +45,7 @@ public class PropiedadesDAO {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error al guardar contratos: " + e.getMessage());
+                System.out.println("Error al guardar contratos: " + e.getMessage());
         }
     }
 

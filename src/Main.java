@@ -1,4 +1,6 @@
 import DAOs.ClientesDAO;
+import DAOs.CompradorDAO;
+import DAOs.VendedorDAO;
 import entities.*;
 import repositories.ContratoRepositorio;
 import repositories.PropiedadRepositorio;
@@ -6,6 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
 
         ContratoRepositorio contratos = new ContratoRepositorio();
 
@@ -21,22 +24,23 @@ public class Main {
         }
 
 
-        PropiedadRepositorio propiedades = new PropiedadRepositorio("src/files/propiedades.txt", "|");
-        propiedades.insertData(new Propiedad(1, "Casa", "Bogota", "Arrendada", "23874623", "550 METROS CUADRADOS"));
-        propiedades.insertData(new Propiedad(3, "Lote", "Cajica variante", "Extinción", "238746", "4000 METROS CUADRADOS"));
 
-        List<Propiedad> listaPropiedades =propiedades.getData();
-        for(Propiedad p: listaPropiedades){
-            System.out.println(p);
-        }
 
-        //IMPLEMENTO EL DAO CLIENTES
-        ClientesDAO clientesDAO = new ClientesDAO();
-        clientesDAO.agregarCliente(new Cliente(10, "Laura", "López", "1111", 1000000));
+        //IMPLEMENTACION CLIENTES DAO
+        VendedorDAO vendedorDAO = new VendedorDAO();
+        CompradorDAO compradorDAO = new CompradorDAO();
 
-        List<Cliente> lista = clientesDAO.cargarClientes();
-        for (Cliente c : lista) {
-            System.out.println(c.getNombre());
-        }
+        // Crear un nuevo comprador
+        Comprador comprador1 = new Comprador(1, "Juan", "Pérez", "123456789", 1000000);
+        Comprador comprador2 = new Comprador(2, "Ana", "Gómez", "987654321", 2000000);
+        Comprador comprador3 = new Comprador(3, "Luis", "Martínez", "456789123", 1500000);
+
+        compradorDAO.create(comprador1);
+        compradorDAO.create(comprador2);
+        compradorDAO.create(comprador3);
+
+        compradorDAO.update(comprador1);
+        compradorDAO.update(comprador2);
+        compradorDAO.update(comprador3);
     }
 }

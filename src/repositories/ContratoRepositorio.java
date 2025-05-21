@@ -1,7 +1,6 @@
 package repositories;
 
 import entities.CentroContratos;
-import interfaces.IContrato;
 import interfaces.IRepositorio;
 
 import java.util.ArrayList;

@@ -4,6 +4,6 @@ import java.util.List;
 import entities.Propiedad;
 import java.io.*;
 
-public class ContratosDAO{
+public  abstract class ContratosDAO{
 
 }

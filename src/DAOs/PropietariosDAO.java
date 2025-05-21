@@ -1,4 +1,4 @@
 package DAOs;
 
-public class PropietariosDAO {
+public abstract class PropietariosDAO {
 }

@@ -1,5 +1,7 @@
 package entities;
 
+import DAOs.ClientesDAO;
+
 public class Persona {
     protected int id;
     protected String nombre;
