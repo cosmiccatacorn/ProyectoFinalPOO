@@ -45,11 +45,23 @@ public class ContratosDAO implements IDAO<CentroContratos> {
 
     @Override
     public boolean update(CentroContratos instance) {
+        for (int i = 0; i < centrosContratos.size(); i++) {
+            if (centrosContratos.get(i).getId() ==instance.getId()) {
+                centrosContratos.set(i, instance);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean delete(int id) {
+        for (int i = 0; i < centrosContratos.size(); i++) {
+            if (centrosContratos.get(i).getId() == id) {
+                centrosContratos.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 }

@@ -44,11 +44,23 @@ public class PropiedadesDAO implements IDAO<Propiedad> {
 
     @Override
     public boolean update(Propiedad instance) {
+        for (int i = 0; i < propiedades.size(); i++) {
+            if (propiedades.get(i).getId() == instance.getId()) {
+                propiedades.set(i, instance);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean delete(int id) {
+        for (int i = 0; i < propiedades.size(); i++) {
+            if (propiedades.get(i).getId() == id) {
+                propiedades.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 }

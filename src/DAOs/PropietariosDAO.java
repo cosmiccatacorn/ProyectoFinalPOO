@@ -9,10 +9,13 @@ import java.util.ArrayList;
 
 public class PropietariosDAO implements IDAO<Propietario> {
 
-    ArrayList<Propietario> propietarios = new ArrayList<>();
+    ArrayList<Propietario> propietarios;
 
     public PropietariosDAO(ArrayList<Propietario> propietarios) {
         this.propietarios = propietarios;
+    }
+    public PropietariosDAO() {
+        this.propietarios = new ArrayList<>();
     }
 
     @Override
@@ -42,11 +45,23 @@ public class PropietariosDAO implements IDAO<Propietario> {
 
     @Override
     public boolean update(Propietario instance) {
+        for (int i = 0; i < propietarios.size(); i++) {
+            if (propietarios.get(i).getId() == instance.getId()) {
+                propietarios.set(i, instance);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean delete(int id) {
+        for (int i = 0; i < propietarios.size(); i++) {
+            if (propietarios.get(i).getId() == id) {
+                propietarios.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 }
