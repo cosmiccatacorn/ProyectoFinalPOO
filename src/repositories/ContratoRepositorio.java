@@ -23,7 +23,7 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
         ArrayList<CentroContratos> contratos = null;
         ArrayList<Persona> personas = new ArrayList<>();
         personas.addAll(this.clientesRepo.getData());
-        personas.addAll(this.vendedoresRepo.getData());
+        personas.addAll(this.vendedoresRepo. getData());
         ArrayList<String> lines = fileManager.getDataFile();
         if (lines != null) {
             System.out.println("Contratos encontrados");
@@ -36,11 +36,13 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
                 double valor = Double.parseDouble(tokens.nextToken());
                 String estado = tokens.nextToken();
                 String notaria = tokens.nextToken();
-                String nombrePersona = tokens.nextToken();
                 Persona p = null;
-                for (Persona persona: personas){
-                    if(persona.getNombre().equals(nombrePersona)){
-                        p = persona;
+                if(tokens.hasMoreTokens()) {
+                    String nombrePersona = tokens.nextToken();
+                    for (Persona persona : personas) {
+                        if (persona.getNombre().equals(nombrePersona)) {
+                            p = persona;
+                        }
                     }
                 }
                 CentroContratos c = new CentroContratos(id, tipo, valor, estado, notaria, p);
@@ -55,7 +57,7 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
     public void insertData(CentroContratos c) {
         // id|tipo|monto|estado|notaria|Persona.nombre
             String line = c.getId() + "|" + c.getTipo() + "|" + c.getMonto() +
-                    "|"+c.getEstado() + "|" + c.getNotaria() + "|"+ c.getPersona().getNombre()+ "\n";
+                    "|"+c.getEstado() + "|" + c.getNotaria() + "|"+ (c.getPersona() == null ? "Sin propietario" : c.getPersona().getNombre()) + "\n";
             System.out.println(line);
             boolean insert = this.fileManager.writeFile(line);
             if (insert){

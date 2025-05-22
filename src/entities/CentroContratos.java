@@ -21,6 +21,15 @@ public class CentroContratos implements IContrato {
         this.persona = persona;
     }
 
+    public CentroContratos(int id, String tipo, double monto, String estado) {
+        this.id = id;
+        this.tipo = tipo;
+        this.monto = monto;
+        this.estado = estado;
+        this.notaria = "Notaría 1";
+        this.persona = null;
+    }
+
     //METODOS
 
     public Persona getPersona() {

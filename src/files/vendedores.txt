@@ -1,5 +1,3 @@
-//CLIENTES DE TIPO VENDEDOR
-//ID | NOMBRE | APELLIDO | CEDULA | # PROPIEDADES
 4|pablo|Pérez|343456|
 5|Maria|Murcia|162534|david@gmail.com
 6|Abril|García|123456|juana@gmail.com

@@ -2,7 +2,9 @@ package DAOs;
 
 import entities.Cliente;
 import interfaces.IDAO;
+import org.w3c.dom.ls.LSOutput;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,4 +71,5 @@ public class ClienteDAO implements IDAO<Cliente> {
         }
         return false;
     }
+
 }

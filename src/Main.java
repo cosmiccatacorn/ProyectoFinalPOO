@@ -8,6 +8,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        ClienteDAO clienteDAO = new ClienteDAO();
+
+        // Crear un nuevo comprador
+        Cliente cliente1 = new Cliente(1, "Juan", "Pérez", "123456789", 1000000);
+        Cliente cliente2 = new Cliente(2, "Ana", "Gómez", "987654321", 2000000);
+        Cliente cliente3 = new Cliente(3, "Luis", "Martínez", "456789123", 1500000);
+
+        clienteDAO.create(cliente1);
+        clienteDAO.create(cliente2);
+        clienteDAO.create(cliente3);
 
         ContratoRepositorio contratos = new ContratoRepositorio();
 
@@ -22,24 +32,5 @@ public class Main {
             System.out.println(c);
         }
 
-
-
-
-        //IMPLEMENTACION CLIENTES DAO
-        VendedorDAO vendedorDAO = new VendedorDAO();
-        ClienteDAO clienteDAO = new ClienteDAO();
-
-        // Crear un nuevo comprador
-        Cliente cliente1 = new Cliente(1, "Juan", "Pérez", "123456789", 1000000);
-        Cliente cliente2 = new Cliente(2, "Ana", "Gómez", "987654321", 2000000);
-        Cliente cliente3 = new Cliente(3, "Luis", "Martínez", "456789123", 1500000);
-
-        clienteDAO.create(cliente1);
-        clienteDAO.create(cliente2);
-        clienteDAO.create(cliente3);
-
-        clienteDAO.update(cliente1);
-        clienteDAO.update(cliente2);
-        clienteDAO.update(cliente3);
     }
 }

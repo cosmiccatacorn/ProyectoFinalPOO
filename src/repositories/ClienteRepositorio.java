@@ -6,9 +6,9 @@ import interfaces.IRepositorio;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class CompradorRepositorio extends Repositorio implements IRepositorio<Cliente> {
+public class ClienteRepositorio extends Repositorio implements IRepositorio<Cliente> {
 
-    public CompradorRepositorio(String path) {
+    public ClienteRepositorio(String path) {
         super(path, "|");
     }
 

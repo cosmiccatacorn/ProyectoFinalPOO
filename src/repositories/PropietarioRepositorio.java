@@ -27,15 +27,23 @@ public class PropietarioRepositorio extends Repositorio implements IRepositorio<
                 String nombre = tokens.nextToken();
                 String apellido = (tokens.nextToken());
                 String cedula= tokens.nextToken();
-                if(!tokens.nextToken().equals(null)){
-                    ArrayList<Propiedad> propiedades = new ArrayList<>();
-                    //Agregar las propiedades al arraylist con el repositorio de propiedades
-                    Propietario v = new Propietario(id, nombre, apellido, cedula, propiedades);
-
+                Propietario p;
+                if (tokens.hasMoreTokens()) {
+                    String propiedadesToken = tokens.nextToken();
+                    if (propiedadesToken != null && !propiedadesToken.equals("null")) {
+                        ArrayList<Propiedad> propiedades = new ArrayList<>();
+                        // Agregar las propiedades al arraylist con el repositorio de propiedades
+                        p = new Propietario(id, nombre, apellido, cedula, propiedades);
+                    } else {
+                        p = new Propietario(id, nombre, apellido, cedula);
+                    }
+                } else {
+                    p = new Propietario(id, nombre, apellido, cedula);
                 }
-                Propietario v = new Propietario(id, nombre, apellido, cedula);
-                vendedores.add(v);
+
+                vendedores.add(p);
             }
+
             return vendedores;
         }
         return null;
