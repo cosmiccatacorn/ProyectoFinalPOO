@@ -51,16 +51,16 @@ public abstract class Propiedad {
         this.estado = estado;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
-    public String getAreaMSq() {
+    public float getAreaMSq() {
         return areaMSq;
     }
-    public void setAreaMSq(String areaMSq) {
+    public void setAreaMSq(float areaMSq) {
         this.areaMSq = areaMSq;
     }
 }

@@ -1,15 +1,15 @@
 package entities;
 
-public class Comprador extends Persona{
+public class Cliente extends Persona{
 
     private double presupuesto;
 
-    public Comprador(int id, String nombre, String apellido, String cedula, double presupuesto) {
+    public Cliente(int id, String nombre, String apellido, String cedula, double presupuesto) {
         super(id, nombre, apellido, cedula);
         this.presupuesto = presupuesto;
     }
 
-    public Comprador(int id, String nombre, String apellido, String cedula) {
+    public Cliente(int id, String nombre, String apellido, String cedula) {
         super(id, nombre, apellido, cedula);
     }
 

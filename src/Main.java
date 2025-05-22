@@ -1,9 +1,7 @@
-import DAOs.ClientesDAO;
-import DAOs.CompradorDAO;
-import DAOs.VendedorDAO;
+import DAOs.ClienteDAO;
 import entities.*;
 import repositories.ContratoRepositorio;
-import repositories.PropiedadRepositorio;
+
 import java.util.List;
 //comentario
 
@@ -29,19 +27,19 @@ public class Main {
 
         //IMPLEMENTACION CLIENTES DAO
         VendedorDAO vendedorDAO = new VendedorDAO();
-        CompradorDAO compradorDAO = new CompradorDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
 
         // Crear un nuevo comprador
-        Comprador comprador1 = new Comprador(1, "Juan", "Pérez", "123456789", 1000000);
-        Comprador comprador2 = new Comprador(2, "Ana", "Gómez", "987654321", 2000000);
-        Comprador comprador3 = new Comprador(3, "Luis", "Martínez", "456789123", 1500000);
+        Cliente cliente1 = new Cliente(1, "Juan", "Pérez", "123456789", 1000000);
+        Cliente cliente2 = new Cliente(2, "Ana", "Gómez", "987654321", 2000000);
+        Cliente cliente3 = new Cliente(3, "Luis", "Martínez", "456789123", 1500000);
 
-        compradorDAO.create(comprador1);
-        compradorDAO.create(comprador2);
-        compradorDAO.create(comprador3);
+        clienteDAO.create(cliente1);
+        clienteDAO.create(cliente2);
+        clienteDAO.create(cliente3);
 
-        compradorDAO.update(comprador1);
-        compradorDAO.update(comprador2);
-        compradorDAO.update(comprador3);
+        clienteDAO.update(cliente1);
+        clienteDAO.update(cliente2);
+        clienteDAO.update(cliente3);
     }
 }
