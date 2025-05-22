@@ -31,6 +31,5 @@ public class Main {
         for(CentroContratos c: listaContratos){
             System.out.println(c);
         }
-
     }
 }
