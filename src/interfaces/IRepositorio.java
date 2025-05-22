@@ -9,4 +9,8 @@ public interface IRepositorio <T>{
     ArrayList<T> getData();
     // De archivo temporal a persistente
     void insertData(T t);
+    // update
+    boolean updateData(T t);
+    //eliminar línea
+    boolean deleteData(int id);
 }

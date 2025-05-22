@@ -1,21 +1,21 @@
 package DAOs;
 
-import entities.CentroContratos;
-import entities.Cliente;
 import entities.Propietario;
 import interfaces.IDAO;
+import repositories.PropietarioRepositorio;
 
 import java.util.ArrayList;
 
 public class PropietariosDAO implements IDAO<Propietario> {
 
     ArrayList<Propietario> propietarios;
+    private PropietarioRepositorio repositorio;
 
-    public PropietariosDAO(ArrayList<Propietario> propietarios) {
-        this.propietarios = propietarios;
-    }
+
     public PropietariosDAO() {
-        this.propietarios = new ArrayList<>();
+        this.repositorio = new PropietarioRepositorio("src/files/vendedores.txt", "|");
+        this.propietarios = repositorio.getData();
+
     }
 
     @Override
@@ -35,6 +35,12 @@ public class PropietariosDAO implements IDAO<Propietario> {
                 return false; // Ya existe un comprador con ese ID
             }
         }
+        try {
+            propietarios.add(instance);
+            repositorio.insertData(instance);
+        } catch (Exception e) {
+            System.out.println("Error surgido de tipo: " + e.getClass());
+        }
         return propietarios.add(instance);
     }
 
@@ -48,7 +54,7 @@ public class PropietariosDAO implements IDAO<Propietario> {
         for (int i = 0; i < propietarios.size(); i++) {
             if (propietarios.get(i).getId() == instance.getId()) {
                 propietarios.set(i, instance);
-                return true;
+                return repositorio.updateData(instance);
             }
         }
         return false;
@@ -59,7 +65,7 @@ public class PropietariosDAO implements IDAO<Propietario> {
         for (int i = 0; i < propietarios.size(); i++) {
             if (propietarios.get(i).getId() == id) {
                 propietarios.remove(i);
-                return true;
+                return repositorio.deleteData(id);
             }
         }
         return false;

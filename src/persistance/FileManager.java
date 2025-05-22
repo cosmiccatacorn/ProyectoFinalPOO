@@ -47,4 +47,25 @@ public class FileManager {
 
         return writer;
     }
+
+    public boolean rewriteFile(ArrayList<String> lines) {
+        try {
+            File file = new File(pathFile);
+            // Sobreescribir el archivo
+            FileWriter fw = new FileWriter(file, false);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (String line : lines) {
+                bw.write(line);
+                bw.newLine();
+            }
+
+            bw.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al reescribir archivo: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

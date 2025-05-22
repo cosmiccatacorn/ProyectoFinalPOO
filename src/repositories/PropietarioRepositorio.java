@@ -60,7 +60,74 @@ public class PropietarioRepositorio extends Repositorio implements IRepositorio<
         }else {
             System.out.println("Ha ocurrido un error!");
         }
+    }
 
+    @Override
+    public boolean updateData(Propietario propietario) {
+        ArrayList<Propietario> propietarios = getData();
+        ArrayList<String> lineasActualizadas = new ArrayList<>();
+        boolean encontrado = false;
 
+        for (Propietario p : propietarios) {
+            if (p.getId() == propietario.getId()) {
+                // Construir la línea actualizada
+                String linea = propietario.getId() + "|" + propietario.getNombre() + "|" +
+                        propietario.getApellido() + "|" + propietario.getCedula();
+
+                if (propietario.getCantidadPropiedades() > 0) {
+                    linea += "|" + propietario.getPropiedades();
+                } else {
+                    linea += "|null";
+                }
+                lineasActualizadas.add(linea);
+                encontrado = true;
+            } else {
+                // Mantener la línea original
+                String linea = p.getId() + "|" + p.getNombre() + "|" +
+                        p.getApellido() + "|" + p.getCedula();
+
+                if (p.getCantidadPropiedades() > 0) {
+                    linea += "|" + p.getPropiedades();
+                } else {
+                    linea += "|null";
+                }
+                lineasActualizadas.add(linea);
+            }
+        }
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasActualizadas);
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean deleteData(int id) {
+        ArrayList<Propietario> propietarios = getData();
+        ArrayList<String> lineasRestantes = new ArrayList<>();
+        boolean encontrado = false;
+
+        for (Propietario p : propietarios) {
+            if (p.getId() != id) {
+                // Mantener solo las líneas que no corresponden al ID a eliminar
+                String linea = p.getId() + "|" + p.getNombre() + "|" +
+                        p.getApellido() + "|" + p.getCedula();
+
+                if (p.getCantidadPropiedades() > 0) {
+                    linea += "|" + p.getPropiedades();
+                } else {
+                    linea += "|null";
+                }
+
+                lineasRestantes.add(linea);
+            } else {
+                encontrado = true;
+            }
+        }
+
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasRestantes);
+        }
+        return false;
     }
 }
