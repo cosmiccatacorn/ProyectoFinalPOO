@@ -16,4 +16,17 @@ public class Lote extends Propiedad{
     public void setTipoDeLicencia(String tipoDeLicencia) {
         this.tipoDeLicencia = tipoDeLicencia;
     }
+
+    @Override
+    public String toString() {
+        return "Lote{" +
+                "tipoDeLicencia='" + tipoDeLicencia + '\'' +
+                ", id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", precio=" + precio +
+                ", areaMSq=" + areaMSq +
+                '}';
+    }
 }

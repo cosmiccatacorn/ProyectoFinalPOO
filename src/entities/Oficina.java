@@ -26,4 +26,18 @@ public class Oficina extends Propiedad{
     public void setHasBano(boolean hasBano) {
         this.hasBano = hasBano;
     }
+
+    @Override
+    public String toString() {
+        return "Oficina{" +
+                "piso=" + piso +
+                ", hasBano=" + hasBano +
+                ", id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", precio=" + precio +
+                ", areaMSq=" + areaMSq +
+                '}';
+    }
 }

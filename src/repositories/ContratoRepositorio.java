@@ -20,7 +20,7 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
 
     @Override
     public ArrayList<CentroContratos> getData() {
-        ArrayList<CentroContratos> contratos = null;
+        ArrayList<CentroContratos> contratos;
         ArrayList<Persona> personas = new ArrayList<>();
         personas.addAll(this.clientesRepo.getData());
         personas.addAll(this.vendedoresRepo. getData());

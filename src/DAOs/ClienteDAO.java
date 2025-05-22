@@ -37,16 +37,11 @@ public class ClienteDAO implements IDAO<Cliente> {
         return listClientes.add(cliente);
     }
 
-
-
-
     // READ - Obtener todos los compradores
     @Override
     public ArrayList<Cliente> readAll() {
         return new ArrayList<>(listClientes); // Retorna una copia
     }
-
-
 
     // UPDATE - Actualizar un comprador existente
     @Override

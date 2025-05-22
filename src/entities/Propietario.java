@@ -45,4 +45,15 @@ public class Propietario extends Persona{
         }
     }
 
+    @Override
+    public String toString() {
+        return "Propietario{" +
+                "propiedades=" + propiedades +
+                ", cantidadPropiedades=" + cantidadPropiedades +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", cedula='" + cedula + '\'' +
+                '}';
+    }
 }

@@ -20,4 +20,17 @@ public class ContratoCompra extends CentroContratos{
     public void imprimirContratos() {
         System.out.println("Contrato de Compra ID: " + id + ", Monto: " + monto + ", Fecha: " + fechaCompra);
     }
+
+    @Override
+    public String toString() {
+        return "ContratoCompra{" +
+                "fechaCompra='" + fechaCompra + '\'' +
+                ", id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", monto=" + monto +
+                ", estado='" + estado + '\'' +
+                ", notaria='" + notaria + '\'' +
+                ", persona=" + persona +
+                '}';
+    }
 }

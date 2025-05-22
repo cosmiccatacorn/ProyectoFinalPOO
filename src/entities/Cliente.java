@@ -20,4 +20,15 @@ public class Cliente extends Persona{
     public void setPresupuesto(double presupuesto) {
         this.presupuesto = presupuesto;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "presupuesto=" + presupuesto +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", cedula='" + cedula + '\'' +
+                '}';
+    }
 }

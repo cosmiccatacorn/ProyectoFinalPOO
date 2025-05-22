@@ -46,5 +46,21 @@ public class Apartamento extends Propiedad{
     public void setNumHabitaciones(int numHabitaciones) {
         this.numHabitaciones = numHabitaciones;
     }
+
+    @Override
+    public String toString() {
+        return "Apartamento{" +
+                "idApartamento=" + idApartamento +
+                ", edificio='" + edificio + '\'' +
+                ", numBanos=" + numBanos +
+                ", numHabitaciones=" + numHabitaciones +
+                ", id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", precio=" + precio +
+                ", areaMSq=" + areaMSq +
+                '}';
+    }
 }
 

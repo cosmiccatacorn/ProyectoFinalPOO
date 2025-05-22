@@ -46,4 +46,20 @@ public class Casa extends Propiedad{
     public void setNumBanos(int numBanos) {
         this.numBanos = numBanos;
     }
+
+    @Override
+    public String toString() {
+        return "Casa{" +
+                "numeroCasa=" + numeroCasa +
+                ", numHabitaciones=" + numHabitaciones +
+                ", numPisos=" + numPisos +
+                ", numBanos=" + numBanos +
+                ", id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", precio=" + precio +
+                ", areaMSq=" + areaMSq +
+                '}';
+    }
 }

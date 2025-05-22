@@ -1,6 +1,6 @@
 package entities;
 
-public class Persona {
+public abstract class Persona {
     protected int id;
     protected String nombre;
     protected String apellido;
@@ -47,4 +47,6 @@ public class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+
 }
