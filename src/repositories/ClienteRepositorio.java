@@ -42,7 +42,38 @@ public class ClienteRepositorio extends Repositorio implements IRepositorio<Clie
         }else {
             System.out.println("Ha ocurrido un error!");
         }
+    }
 
+    @Override
+    public boolean updateData(Cliente cliente) {
+        ArrayList<Cliente> clientes = getData();
+        ArrayList<String> lineasActualizadas = new ArrayList<>();
+        boolean encontrado = false;
 
+        for (Cliente c: clientes) {
+            if (c.getId() == cliente.getId()) {
+                // Construir la línea actualizada
+                String linea = cliente.getId() + "|" + cliente.getNombre() + "|" +
+                        cliente.getApellido() + "|" + cliente.getCedula() + "|" + cliente.getPresupuesto();
+
+                lineasActualizadas.add(linea);
+                encontrado = true;
+            } else {
+                // Mantener la línea original
+                String linea = c.getId() + "|" + c.getNombre() + "|" +
+                        c.getApellido() + "|" + c.getCedula() + "|" + c.getPresupuesto();
+                lineasActualizadas.add(linea);
+            }
+        }
+
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasActualizadas);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteData(int id) {
+        return false;
     }
 }

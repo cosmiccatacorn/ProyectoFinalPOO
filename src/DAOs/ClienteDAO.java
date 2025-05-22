@@ -3,6 +3,7 @@ package DAOs;
 import entities.Cliente;
 import interfaces.IDAO;
 import org.w3c.dom.ls.LSOutput;
+import repositories.ClienteRepositorio;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -10,10 +11,12 @@ import java.util.List;
 
 public class ClienteDAO implements IDAO<Cliente> {
 
+    private ClienteRepositorio repositorio;
     private List<Cliente> listClientes;
 
     public ClienteDAO() {
-        this.listClientes = new ArrayList<>();
+        this.repositorio = new ClienteRepositorio("src/files/clientes.txt");
+        this.listClientes = repositorio.getData();
     }
 
     @Override
@@ -34,7 +37,14 @@ public class ClienteDAO implements IDAO<Cliente> {
                 return false; // Ya existe un comprador con ese ID
             }
         }
-        return listClientes.add(cliente);
+        try{
+            listClientes.add(cliente);
+            repositorio.insertData(cliente);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al crear cliente de tipo: " + e.getClass());
+        }
+        return false;
     }
 
     // READ - Obtener todos los compradores
@@ -49,7 +59,7 @@ public class ClienteDAO implements IDAO<Cliente> {
         for (int i = 0; i < listClientes.size(); i++) {
             if (listClientes.get(i).getId() == cliente.getId()) {
                 listClientes.set(i, cliente);
-                return true;
+                return repositorio.updateData(cliente);
             }
         }
         return false;
@@ -61,7 +71,7 @@ public class ClienteDAO implements IDAO<Cliente> {
         for (int i = 0; i < listClientes.size(); i++) {
             if (listClientes.get(i).getId() == id) {
                 listClientes.remove(i);
-                return true;
+                return repositorio.deleteData(id);
             }
         }
         return false;
