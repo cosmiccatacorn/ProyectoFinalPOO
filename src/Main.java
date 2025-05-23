@@ -12,7 +12,15 @@ public class Main {
 
         //Iniciar el menu
         App menu = new services.App();
-        menu.run();
+        try {
+            menu.run();
+        } catch (NullPointerException e) {
+            System.out.println("El objeto al que se quiere acceder es nulo");
+        }catch (NumberFormatException e){
+            System.out.println("Error de formato");
+        }        catch (Exception e) {
+            System.out.println("Error surgido de tipo: " + e.getClass());
+        }
 
     }
 }

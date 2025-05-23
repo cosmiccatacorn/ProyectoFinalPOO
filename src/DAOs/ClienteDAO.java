@@ -20,16 +20,6 @@ public class ClienteDAO implements IDAO<Cliente> {
         if(this.listClientes == null){
             this.listClientes = new ArrayList<>();
         }
-
-        if (listClientes != null) {
-            for (Cliente c : listClientes) {
-
-            }
-        } else {
-            listClientes = new ArrayList<>();
-        }
-
-
     }
     public void Create(Cliente cliente) {
         // Si necesitas recorrer la lista, ahora puedes hacerlo sin problema
