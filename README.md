@@ -203,6 +203,77 @@ La agregación ayuda a modelar relaciones de "tiene un" sin dependencia de ciclo
 - Propiedad ▣─ ContratoBase: Cada contrato (compra, venta o arriendo) está completamente ligado a una propiedad específica. Si una propiedad se elimina del sistema, sus contratos asociados también dejan de existir.
 Esta relación modela que los contratos no tienen sentido por sí solos, sino únicamente como parte de la gestión de una propiedad.
 
+## EXPLICACIÓN DETALLADA DEL CODIGO
+
+**1: DAOs**
+
+public class PropietariosDAO implements IDAO<Propietario> {
+
+    ArrayList<Propietario> propietarios;
+    private PropietarioRepositorio repositorio;
+
+    public PropietariosDAO() {
+        this.repositorio = new PropietarioRepositorio("src/files/vendedores.txt", "|");
+        this.propietarios = repositorio.getData();
+    }
+
+    @Override
+    public Propietario searchById(int id) {
+        for (Propietario propietario : propietarios) {
+            if(propietario.getId() == id){
+                return propietario;
+            }
+        }
+        return null;
+    }
+
+    ...
+
+    EXPLICACIÓN: odos los DAOs siguen la misma estructura: implementan la interfaz IDAO con su clase concreta (como Propietario), declaran un ArrayList para manejar los datos en memoria y un repositorio correspondiente como atributo. En el constructor se instancia el repositorio y se cargan los datos desde el archivo. Se implementan los métodos create, readAll, update, delete y searchById, que permiten operar sobre la lista de objetos y sincronizar cambios con el repositorio.
+
+**2: ENTITIES**
+
+public class Apartamento extends Propiedad {
+
+    private int idApartamento;
+    private String edificio;
+    private int numBanos;
+    private int numHabitaciones;
+
+    public Apartamento(int id, String tipo, String direccion, String estado, double precio, float areaMSq,
+                       int idApartamento, String edificio, int numBanos, int numHabitaciones) {
+        super(id, tipo, direccion, estado, precio, areaMSq);
+        this.idApartamento = idApartamento;
+        this.edificio = edificio;
+        this.numBanos = numBanos;
+        this.numHabitaciones = numHabitaciones;
+    }
+
+    @Override
+    public String toString() {
+        return ...
+}
+
+EXPLICACIÓN: Las entities del sistema representan las clases del dominio y están organizadas en clases abstractas y concretas. La clase abstracta Propiedad contiene los atributos comunes de inmuebles como id, tipo, dirección, estado, precio y área, y es extendida por clases concretas como Apartamento y Casa, que agregan atributos específicos. Además, existen otras entidades como Cliente, Contrato, ContratoVenta, entre otras, que representan objetos clave en el sistema con sus propios atributos y métodos. Todas siguen una estructura clara con constructores, getters, setters y una sobrescritura del método toString.
+
+**3. INTERFACES:**
+
+import java.util.ArrayList;
+
+public interface ICliente<T> {
+    void create(T t);
+    void update(T t);
+    void delete(int id);
+    T read(int id);
+    ArrayList<T> readAll();
+}
+
+
+EXPLICACIÓN: Las interfaces del sistema definen contratos que deben seguir las clases que las implementan. IDAO<T> establece métodos CRUD genéricos y es implementada por todas las clases DAO, garantizando una estructura uniforme. ICliente<T> define operaciones específicas para clientes y permite modularidad al separar la lógica cliente del resto. Por su parte, IContrato e IRepositorio<T> organizan comportamientos clave relacionados con la gestión de contratos y acceso a archivos, respectivamente. Todas las interfaces contribuyen a la abstracción y desacoplamiento del sistema.
+
+4. 
+
+
 
 
 
