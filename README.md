@@ -1,5 +1,13 @@
 
 # Marco de Trabajo para Sistema de gestión inmobiliaria: Documentación Completa
+
+## PRESENTACIÓN DEL EQUIPO: 
+
+1. CATALINA SANDOVAL
+2. MARIANA CUADROS
+3. THOMAS GOMEZ
+4. DAVID MURCIA
+
 ## Descripción del problema: 
 Hoy en día, las agencias de finca raíz tienen muchos retos a la hora de organizar y manejar bien todas sus operaciones. Por ejemplo, deben gestionar muchas propiedades al mismo tiempo, llevar el control de la información de propietarios y clientes, y tener registrados todos los contratos de arriendo o venta. Además, necesitan ofrecer un servicio rápido, claro y cómodo tanto para los usuarios como para el personal de la agencia. Cuando no hay un sistema automatizado, todo esto se vuelve más complicado. Es difícil saber qué propiedades están disponibles, acceder a información actualizada, y los clientes no pueden buscar fácilmente lo que necesitan. También se pierde el control sobre los contratos, los pagos o cuándo se vencen. Por eso, proponemos desarrollar una aplicación que permita a la agencia tener un control completo de todo lo que maneja, haciendo que el trabajo interno sea más organizado y que la experiencia del usuario sea mucho mejor.
 
@@ -180,7 +188,7 @@ Esta relación modela que los contratos no tienen sentido por sí solos, sino ú
 ## ACA VA LA EXPLICACIÓN DEL CODIGO## 
 
 
-## DEMOSTRACIÓN DE CONCEPTOS POO## 
+## DEMOSTRACIÓN DE CONCEPTOS POO 
 El sistema desarrollado refleja claramente los pilares de la Programación Orientada a Objetos (POO) en su diseño e implementación:
 
 1. Encapsulamiento: Los atributos de clases como Persona, Propiedad y ContratoBase son privados o protegidos, y su acceso está controlado mediante métodos get y set.La lógica interna, como el cálculo del monto total del contrato o la validación del estado de una propiedad, está contenida dentro de métodos públicos que encapsulan el comportamiento.
@@ -192,7 +200,7 @@ El sistema desarrollado refleja claramente los pilares de la Programación Orien
    - Agregación: Entre Propiedad y Persona (la propiedad hace referencia a un dueño, pero ambos pueden existir por separado).
    - Composición: Entre Propiedad y ContratoBase (un contrato no existe sin una propiedad asociada; si la propiedad se elimina, los contratos también).
   
-## EXTENSIBILIDAD##
+## EXTENSIBILIDAD
 El sistema está diseñado para ser modular y fácilmente extensible, permitiendo futuras adaptaciones sin alterar la arquitectura base:
 
 1. Nuevos tipos de propiedad: Es posible agregar nuevas clases como Bodega, TerrenoRural o LocalComercial simplemente extendiendo la clase abstracta Propiedad, heredando atributos y comportamientos comunes.
@@ -203,7 +211,7 @@ El sistema está diseñado para ser modular y fácilmente extensible, permitiend
 6. Separación de responsabilidades con interfaces (DAO y Repositorios): El uso de interfaces como IDAO e IRepositorio permite intercambiar o extender las implementaciones de acceso a datos sin modificar la lógica del dominio.
 7. Escalabilidad del modelo de negocio: La arquitectura admite la incorporación de nuevas funcionalidades como historial de contratos, reportes automáticos, o integración con plataformas externas mediante adaptadores que implementen las interfaces existentes.
 
-## CASO DE USO PRÁCTICO ##: 
+## CASO DE USO PRÁCTICO: 
 La clase Main demuestra un caso de uso práctico y completo del sistema inmobiliario:
 
 1. Creación de personas: Se instancian objetos de tipo Propietario y Cliente, representando a los actores principales del sistema.
@@ -213,7 +221,7 @@ La clase Main demuestra un caso de uso práctico y completo del sistema inmobili
 5. Almacenamiento y consulta en repositorio: A través de interfaces como IRepositorio e IDAO, las entidades son almacenadas y recuperadas sin acoplamiento directo a una implementación específica.
 6. Recorrido polimórfico: Se recorre una colección heterogénea de propiedades o contratos utilizando referencias a clases base (Propiedad o ContratoBase), lo cual permite tratar uniformemente distintos tipos concretos.
 
-## CONCLUSIONES ##: 
+## CONCLUSIONES: 
 
 El Marco de Trabajo para Gestión de Propiedades Inmobiliarias demuestra una arquitectura orientada a objetos bien estructurada que resuelve de manera eficaz los desafíos relacionados con la administración de propiedades, personas y contratos. A través del uso estratégico de interfaces, clases abstractas, y relaciones de herencia, composición, y asociación, el sistema establece una base sólida, extensible y mantenible para futuras aplicaciones inmobiliarias. Los principios fundamentales de la programación orientada a objetos se aplican de forma clara y coherente para: encapsular comportamientos específicos en clases responsables, reutilizar código mediante jerarquías de herencia bien definidas, definir contratos claros mediante interfaces y permitir polimorfismo.  Esta arquitectura facilita la implementación de nuevas funcionalidades, como nuevos tipos de contratos o propiedades, sin comprometer la estabilidad del sistema existente. En consecuencia, este marco puede servir como base robusta para el desarrollo de plataformas inmobiliarias escalables, adaptables tanto a aplicaciones empresariales como académicas.
 
