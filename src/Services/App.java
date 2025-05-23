@@ -7,28 +7,20 @@ import services.Verificacion;
 public class App {
 
 
-    private final UsuarioService usuarioService;
-    private final ContratoService contratoService;
-    private final PropiedadService propiedadService;
-
-    public App(){
-        this.usuarioService = new UsuarioService();
-        this.contratoService = new ContratoService(usuarioService);
-        this.propiedadService = new PropiedadService();
-    }
-
     //Este pedazo de codigo es como tal el menu
     public void run() {
 
 
         PropiedadService ps = new PropiedadService();
         UsuarioService  us = new UsuarioService();
+        ContratoService cs = new ContratoService(us);
         int menu = -1;
 
         while (menu != 0) {
             System.out.println("\n=== INMOBILIARIA SOLARA ===");
             System.out.println("1 - Gestion de Propiedades");
             System.out.println("2 - Gestion de Usuarios");
+            System.out.println("3 - Gestion de Contratos");
             System.out.println("0 - Salir");
             menu = Verificacion.entero("Opcion: ");
 
@@ -38,6 +30,9 @@ public class App {
                     break;
                 case 2:
                     gestionarUsuarios(us);
+                    break;
+                case 3:
+                    gestionarContratos(cs);
                     break;
                 case 0:
                     System.out.println("Saliendo...");
@@ -135,5 +130,42 @@ public class App {
                     System.out.println("Opcion invalida");
             }
         }
+    }
+
+    public void gestionarContratos(ContratoService contratoService){
+        boolean salir = false;
+        while (!salir){
+            System.out.println("\n--- CONTRATOS ---");
+            System.out.println("1 - Registrar contrato");
+            System.out.println("2 - Listar contratos");
+            System.out.println("3 - Ver detalle");
+            System.out.println("4 - Actualizar estado");
+            System.out.println("5 - Eliminar ");
+            System.out.println("0 - Volver");
+            int opcion = Verificacion.entero("Opcion: ");
+            switch (opcion) {
+                case 0:
+                    salir = true;
+                    break;
+                case 1:
+                    contratoService.registrarContratoCliente();
+                    break;
+                case 2:
+                    contratoService.listarTodos();
+                    break;
+                case 3:
+                    contratoService.verDetalle();
+                    break;
+                case 4:
+                    contratoService.actualizar();
+                    break;
+                case 5:
+                    contratoService.eliminar();
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+
     }
 }
