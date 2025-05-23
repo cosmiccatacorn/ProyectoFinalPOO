@@ -16,7 +16,7 @@ public class Verificacion {
                 int val = scanner.nextInt();
                 return val;
             } else {
-                System.out.println("\nError!!! \nDebe ingresar un numero entero.");
+                System.out.println("\nError\uD83D\uDE20!!! \nDebe ingresar un numero entero.");
                 scanner.next();
             }
         }
@@ -29,7 +29,7 @@ public class Verificacion {
             if (num >= min && num <= max) {
                 return num;
             } else {
-                System.out.println("\nError!!! \nEl numero debe estar entre " + min + " y " + max + ".");
+                System.out.println("\nError\uD83D\uDE20!!! \nEl numero debe estar entre " + min + " y " + max + ".");
             }
         }
     }
@@ -41,7 +41,7 @@ public class Verificacion {
             if (num > min) {
                 return num;
             } else {
-                System.out.println("\nError!!! \nEl numero debe ser mayor que " + min + ".");
+                System.out.println("\nError\uD83D\uDE20!!! \nEl numero debe ser mayor que " + min + ".");
             }
         }
     }
@@ -53,7 +53,7 @@ public class Verificacion {
             if (num > min) {
                 return num;
             } else {
-                System.out.println("\nError!!! \nEl numero debe ser mayor que " + min + ".");
+                System.out.println("\nError\uD83D\uDE20!!! \nEl numero debe ser mayor que " + min + ".");
             }
         }
     }
@@ -66,7 +66,7 @@ public class Verificacion {
                 double val = scanner.nextDouble();
                 return val;
             } else {
-                System.out.println("\nError!!! \nDebe ingresar un numero decimal.");
+                System.out.println("\nError\uD83D\uDE20!!! \nDebe ingresar un numero decimal.");
                 scanner.next();
             }
         }
@@ -80,7 +80,7 @@ public class Verificacion {
                 float val = scanner.nextFloat();
                 return val;
             } else {
-                System.out.println("\nError!!! \nDebe ingresar un numero decimal (float).");
+                System.out.println("\nError\uD83D\uDE20!!! \nDebe ingresar un numero decimal (float).");
                 scanner.next();
             }
         }
@@ -104,7 +104,7 @@ public class Verificacion {
             } else if (entrada.equals("n") || entrada.equals("no")) {
                 return false;
             } else {
-                System.out.println("\nError!!! \nResponda con 'Si' o 'No'.");
+                System.out.println("\nError\uD83D\uDE20!!! \nResponda con 'Si' o 'No'.");
             }
         }
     }

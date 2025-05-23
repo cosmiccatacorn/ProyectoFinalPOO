@@ -2,4 +2,6 @@
 2|CompraVenta|3000000|Finalizado|Notaría
 5|Compra|1000000.0|Activo|Notaría 5
 6|Venta|1500000.0|Finalizado|Notaría 7
-7|Arriendo|500000.0|En trámite|Notaría 3
+7|Arriendo|500000.0|En trámite|Notaría 31|Compra|1000000.0|Activo|Notaría 1|Sin propietario
+2|Venta|1500000.0|Finalizado|Notaría 1|Sin propietario
+3|Arriendo|500000.0|En trámite|Notaría 1|Sin propietario
