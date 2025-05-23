@@ -34,6 +34,7 @@ El sistema de gestión inmobiliaria enfrenta varios desafíos que este marco de 
 ## REQUERIMIENTOS FUNCIONALES:
 
 **GESTIÓN DE PROPIEDADES**
+
 RF1 - Registro de Propiedades
 Permite registrar nuevas propiedades con datos como tipo, ubicación, precio, área, habitaciones, baños, disponibilidad y estado. Clave para tener un inventario completo desde el inicio.
 
@@ -50,6 +51,7 @@ RF5 - Búsqueda de Propiedades
 Permite filtrar propiedades por tipo, ubicación, precio y número de habitaciones. Ayuda a los clientes a encontrar justo lo que buscan.
 
 **GESTIÓN DE PROPIETARIOS Y CLIENTES**
+
 RF6 - Registro de Propietarios y Clientes
 Permite registrar sus datos personales como nombre, ID, contacto, dirección, presupuesto, etc. Esencial para relacionarlos con propiedades y contratos.
 
@@ -63,6 +65,7 @@ RF9 - Eliminación de Propietarios y Clientes
 Permite borrar registros cuando ya no se usen o si deciden no continuar. Evita saturar el sistema con datos innecesarios.
 
 **GESTIÓN DE CONTRATOS**
+
 RF10 - Creación de Contratos
 Permite generar contratos entre propietario y cliente, incluyendo tipo, fechas, duración, monto, condiciones y estado. Formaliza el acuerdo entre las partes con trazabilidad.
 
