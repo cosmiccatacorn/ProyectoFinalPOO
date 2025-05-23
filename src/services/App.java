@@ -1,11 +1,6 @@
 package services;
 
-import services.PropiedadService;
-import services.UsuarioService;
-import services.Verificacion;
-
 public class App {
-
 
     //Este pedazo de codigo es como tal el menu
     public void run() {
@@ -166,6 +161,5 @@ public class App {
                     System.out.println("Opcion invalida");
             }
         }
-
     }
 }

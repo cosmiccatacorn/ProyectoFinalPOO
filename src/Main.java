@@ -1,9 +1,8 @@
 //MARIANA CATALINA SANDOVAL PEREZ
+//MARIANA CUADROS ARENA
 //ELIOHT THOMAS GOMEZ MORALES
 //DAVID SANTIAGO MURCIA BARRERA
-//MARIANA CUADROS ARENA
 
-import entities.*;
 import services.App;
 
 public class Main {
@@ -20,6 +19,5 @@ public class Main {
         }        catch (Exception e) {
             System.out.println("Error surgido de tipo: " + e.getClass());
         }
-
     }
 }

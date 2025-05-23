@@ -5,7 +5,6 @@ import entities.Persona;
 
 public class ContratoService {
 
-
     private final ArrayList<Contrato> lista = new ArrayList<>();
     private final UsuarioService usuariosService;
 
@@ -139,5 +138,4 @@ public class ContratoService {
                         '}';
             }
         }
-
-    }
+}

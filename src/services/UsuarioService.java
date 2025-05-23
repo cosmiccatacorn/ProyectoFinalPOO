@@ -1,14 +1,9 @@
 package services;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import DAOs.ClienteDAO;
 import DAOs.PropietariosDAO;
-import services.Verificacion;
 import entities.Cliente;
 import entities.Propietario;
-
 
 public class UsuarioService {
     private final ClienteDAO clienteDAO = new ClienteDAO();
@@ -198,5 +193,4 @@ public class UsuarioService {
             }
         }
     }
-
 }

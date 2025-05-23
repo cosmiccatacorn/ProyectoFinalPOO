@@ -7,7 +7,6 @@ public class Verificacion {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-
     //Entrada de datos enteros
     public static int entero(String mensaje) {
         while (true) {
@@ -108,5 +107,4 @@ public class Verificacion {
             }
         }
     }
-
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 import entities.Persona;
 import entities.Cliente;
 
-
 public class PersonaService {
 
         private ArrayList<Persona> personas = new ArrayList<>();

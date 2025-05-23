@@ -2,19 +2,10 @@ package services;
 
 import java.util.ArrayList;
 
-import DAOs.PropiedadesDAO;
-
 public class PropiedadService {
 
     //private final PropiedadesDAO propiedadesDAO;
     private final ArrayList<PropiedadA> lista = new ArrayList<PropiedadA>();
-
-    /*
-    public PropiedadService() {
-        this.propiedadesDAO = new PropiedadesDAO();
-    }
-
-     */
 
     //Metodo para registrar una nueva propiedad
     public void registrar() {
