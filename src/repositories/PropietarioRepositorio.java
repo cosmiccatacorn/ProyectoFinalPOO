@@ -109,7 +109,6 @@ public class PropietarioRepositorio extends Repositorio implements IRepositorio<
 
         for (Propietario p : propietarios) {
             if (p.getId() != id) {
-                // Mantener solo las líneas que no corresponden al ID a eliminar
                 String linea = p.getId() + "|" + p.getNombre() + "|" +
                         p.getApellido() + "|" + p.getCedula();
 

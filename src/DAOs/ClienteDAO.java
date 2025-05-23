@@ -12,12 +12,35 @@ import java.util.List;
 public class ClienteDAO implements IDAO<Cliente> {
 
     private ClienteRepositorio repositorio;
-    private List<Cliente> listClientes;
+    private ArrayList<Cliente> listClientes;
 
     public ClienteDAO() {
         this.repositorio = new ClienteRepositorio("src/files/clientes.txt");
         this.listClientes = repositorio.getData();
+        if(this.listClientes == null){
+            this.listClientes = new ArrayList<>();
+        }
+
+        if (listClientes != null) {
+            for (Cliente c : listClientes) {
+
+            }
+        } else {
+            listClientes = new ArrayList<>();
+        }
+
+
     }
+    public void Create(Cliente cliente) {
+        // Si necesitas recorrer la lista, ahora puedes hacerlo sin problema
+        for (Cliente c : listClientes) {
+            // Aquí puedes hacer validaciones o lo que necesites
+        }
+        // Agrega el cliente nuevo a la lista
+        listClientes.add(cliente);
+    }
+
+
 
     @Override
     public Cliente searchById(int id) {

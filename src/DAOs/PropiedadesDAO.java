@@ -1,20 +1,22 @@
 package DAOs;
 
-import entities.CentroContratos;
-import entities.Cliente;
 import entities.Propiedad;
 import interfaces.IDAO;
+import repositories.PropiedadRepositorio;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class PropiedadesDAO implements IDAO<Propiedad> {
 
-    public ArrayList<Propiedad> propiedades = new ArrayList<>();
+    private PropiedadRepositorio repositorio;
+    public ArrayList<Propiedad> propiedades;
 
-    public PropiedadesDAO(ArrayList<Propiedad> propiedades) {
-        this.propiedades = propiedades;
+    public PropiedadesDAO() {
+        this.repositorio = new PropiedadRepositorio("src/files/propiedades.txt", "|");
+        this.propiedades = repositorio.getData();
+        if(this.propiedades == null){
+            this.propiedades = new ArrayList<>();
+        }
     }
 
     @Override

@@ -2,7 +2,7 @@
 import DAOs.ClienteDAO;
 import entities.*;
 import repositories.ContratoRepositorio;
-import Services.App;
+import services.App;
 
 import java.util.List;
 //comentario
@@ -11,7 +11,9 @@ public class Main {
     public static void main(String[] args) {
 
         //Iniciar el menu
-        new App().run();
+        App menu = new services.App();
+        menu.run();
+
 
         ClienteDAO clienteDAO = new ClienteDAO();
 
@@ -36,5 +38,9 @@ public class Main {
         for(CentroContratos c: listaContratos){
             System.out.println(c);
         }
+        App app = new App();
+        app.run();
+
+
     }
 }

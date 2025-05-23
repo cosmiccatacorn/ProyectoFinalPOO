@@ -56,15 +56,15 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
     @Override
     public void insertData(CentroContratos c) {
         // id|tipo|monto|estado|notaria|Persona.nombre
-            String line = c.getId() + "|" + c.getTipo() + "|" + c.getMonto() +
-                    "|"+c.getEstado() + "|" + c.getNotaria() + "|"+ (c.getPersona() == null ? "Sin propietario" : c.getPersona().getNombre()) + "\n";
-            System.out.println(line);
-            boolean insert = this.fileManager.writeFile(line);
-            if (insert){
-                System.out.println("Se registró el contrato con éxito!");
-            }else {
-                System.out.println("Ha ocurrido un error!");
-            }
+        String line = c.getId() + "|" + c.getTipo() + "|" + c.getMonto() +
+                "|"+c.getEstado() + "|" + c.getNotaria() + "|"+ (c.getPersona() == null ? "Sin propietario" : c.getPersona().getNombre()) + "\n";
+        System.out.println(line);
+        boolean insert = this.fileManager.writeFile(line);
+        if (insert){
+            System.out.println("Se registró el contrato con éxito!");
+        }else {
+            System.out.println("Ha ocurrido un error!");
+        }
 
 
     }
@@ -117,6 +117,25 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
 
     @Override
     public boolean deleteData(int id) {
+        ArrayList<CentroContratos> contratos = getData();
+        ArrayList<String> lineasRestantes = new ArrayList<>();
+        boolean encontrado = false;
+        for (CentroContratos c : contratos) {
+
+            if(c.getId() != id) {
+                String linea = c.getId() + "|" + c.getTipo() +  "|" + c.getMonto() + "|" + c.getEstado() + "|" + c.getNotaria() + "|" + c.getPersona().getNombre();
+
+                lineasRestantes.add(linea);
+            } else {
+                encontrado = true;
+            }
+        }
+
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasRestantes);
+        }
+
         return false;
     }
 }
+

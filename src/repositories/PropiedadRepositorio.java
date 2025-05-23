@@ -181,4 +181,5 @@ public class PropiedadRepositorio extends Repositorio implements IRepositorio<Pr
     public boolean deleteData(int id) {
         return false;
     }
+
 }

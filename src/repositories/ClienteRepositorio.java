@@ -61,7 +61,7 @@ public class ClienteRepositorio extends Repositorio implements IRepositorio<Clie
             } else {
                 // Mantener la línea original
                 String linea = c.getId() + "|" + c.getNombre() + "|" +
-                        c.getApellido() + "|" + c.getCedula() + "|" + c.getPresupuesto();
+                        c.getApellido() + "|" + c.getCedula() + "|" + c.getPresupuesto() + "\n";
                 lineasActualizadas.add(linea);
             }
         }

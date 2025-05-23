@@ -8,6 +8,9 @@ public class Cliente extends Persona{
         super(id, nombre, apellido, cedula);
         this.presupuesto = presupuesto;
     }
+    public Cliente(){
+
+    }
 
     public Cliente(int id, String nombre, String apellido, String cedula) {
         super(id, nombre, apellido, cedula);
