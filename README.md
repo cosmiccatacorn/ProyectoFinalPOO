@@ -177,6 +177,49 @@ Esta relación modela que los contratos no tienen sentido por sí solos, sino ú
 
 
 
+## ACA VA LA EXPLICACIÓN DEL CODIGO## 
+
+
+## DEMOSTRACIÓN DE CONCEPTOS POO## 
+El sistema desarrollado refleja claramente los pilares de la Programación Orientada a Objetos (POO) en su diseño e implementación:
+
+1. Encapsulamiento: Los atributos de clases como Persona, Propiedad y ContratoBase son privados o protegidos, y su acceso está controlado mediante métodos get y set.La lógica interna, como el cálculo del monto total del contrato o la validación del estado de una propiedad, está contenida dentro de métodos públicos que encapsulan el comportamiento.
+2. Abstracción: Se utilizan interfaces como ICliente, IContrato, IDAO, e IRepositorio para definir contratos claros de comportamiento sin exponer detalles de implementación. Clases abstractas como Propiedad y ContratoBase definen estructura y funcionalidad compartida entre sus subclases, permitiendo reutilización parcial y forzando a las clases hijas a implementar ciertos métodos esenciales.
+3. Herencia: La jerarquía de clases establece relaciones del tipo “es un”: Propietario y Cliente heredan de Persona. Casa, Apartamento, Oficina y Lote heredan de Propiedad. ContratoCompra, ContratoVenta y ContratoArriendo extienden de ContratoBase. Se aprovecha la herencia para evitar duplicación de código y centralizar lógica común.
+4. Polimorfismo: Gracias al uso de interfaces y clases abstractas, el sistema puede manejar objetos de diferentes clases concretas mediante referencias genéricas, como listas de ContratoBase o Propiedad. Los métodos como generarContrato() o mostrarDetalles() se comportan de forma distinta según la subclase concreta, demostrando polimorfismo en tiempo de ejecución.
+5. Relaciones entre Objetos:
+   - Asociación: Entre Propietario y Propiedad (un propietario puede tener múltiples propiedades).
+   - Agregación: Entre Propiedad y Persona (la propiedad hace referencia a un dueño, pero ambos pueden existir por separado).
+   - Composición: Entre Propiedad y ContratoBase (un contrato no existe sin una propiedad asociada; si la propiedad se elimina, los contratos también).
+  
+## EXTENSIBILIDAD##
+El sistema está diseñado para ser modular y fácilmente extensible, permitiendo futuras adaptaciones sin alterar la arquitectura base:
+
+1. Nuevos tipos de propiedad: Es posible agregar nuevas clases como Bodega, TerrenoRural o LocalComercial simplemente extendiendo la clase abstracta Propiedad, heredando atributos y comportamientos comunes.
+2. Nuevos tipos de contrato:La clase abstracta ContratoBase puede ser extendida con nuevos contratos especializados, como ContratoPermuta o ContratoReserva, aprovechando la estructura común y agregando comportamientos particulares.
+3. Nuevas interfaces para comportamiento adicional: Se pueden definir interfaces nuevas para agregar funcionalidades específicas a las clases sin modificar su jerarquía principal.
+4. Sobrescritura de métodos en clases concretas: Las subclases como Casa o ContratoArriendo pueden sobrescribir métodos para personalizar el comportamiento según las reglas específicas del negocio.
+5. Sistema flexible de gestión de personas: Se pueden integrar fácilmente nuevos roles de personas extendiendo la clase base Persona.
+6. Separación de responsabilidades con interfaces (DAO y Repositorios): El uso de interfaces como IDAO e IRepositorio permite intercambiar o extender las implementaciones de acceso a datos sin modificar la lógica del dominio.
+7. Escalabilidad del modelo de negocio: La arquitectura admite la incorporación de nuevas funcionalidades como historial de contratos, reportes automáticos, o integración con plataformas externas mediante adaptadores que implementen las interfaces existentes.
+
+## CASO DE USO PRÁCTICO ##: 
+La clase Main demuestra un caso de uso práctico y completo del sistema inmobiliario:
+
+1. Creación de personas: Se instancian objetos de tipo Propietario y Cliente, representando a los actores principales del sistema.
+2. Creación de propiedades: Se crean instancias concretas como Apartamento, Casa, Lote y Oficina, demostrando el uso de herencia desde la clase abstracta Propiedad.
+3. Generación de contratos: Se crean distintos tipos de contrato (ContratoCompra, ContratoVenta, ContratoArriendo) que enlazan propiedades con clientes y propietarios, aplicando el principio de composición.
+4. Asociación de contratos a propiedades: Se demuestra cómo cada propiedad puede contener un contrato específico, evidenciando la relación de composición entre Propiedad y ContratoBase.
+5. Almacenamiento y consulta en repositorio: A través de interfaces como IRepositorio e IDAO, las entidades son almacenadas y recuperadas sin acoplamiento directo a una implementación específica.
+6. Recorrido polimórfico: Se recorre una colección heterogénea de propiedades o contratos utilizando referencias a clases base (Propiedad o ContratoBase), lo cual permite tratar uniformemente distintos tipos concretos.
+
+## CONCLUSIONES ##: 
+
+El Marco de Trabajo para Gestión de Propiedades Inmobiliarias demuestra una arquitectura orientada a objetos bien estructurada que resuelve de manera eficaz los desafíos relacionados con la administración de propiedades, personas y contratos. A través del uso estratégico de interfaces, clases abstractas, y relaciones de herencia, composición, y asociación, el sistema establece una base sólida, extensible y mantenible para futuras aplicaciones inmobiliarias. Los principios fundamentales de la programación orientada a objetos se aplican de forma clara y coherente para: encapsular comportamientos específicos en clases responsables, reutilizar código mediante jerarquías de herencia bien definidas, definir contratos claros mediante interfaces y permitir polimorfismo.  Esta arquitectura facilita la implementación de nuevas funcionalidades, como nuevos tipos de contratos o propiedades, sin comprometer la estabilidad del sistema existente. En consecuencia, este marco puede servir como base robusta para el desarrollo de plataformas inmobiliarias escalables, adaptables tanto a aplicaciones empresariales como académicas.
+
+
+
+
 
 
 
