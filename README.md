@@ -33,7 +33,7 @@ El sistema de gestión inmobiliaria enfrenta varios desafíos que este marco de 
 
 ## REQUERIMIENTOS FUNCIONALES:
 
-## GESTIÓN DE PROPIEDADES
+**GESTIÓN DE PROPIEDADES**
 RF1 - Registro de Propiedades
 Permite registrar nuevas propiedades con datos como tipo, ubicación, precio, área, habitaciones, baños, disponibilidad y estado. Clave para tener un inventario completo desde el inicio.
 
@@ -49,7 +49,7 @@ Permite eliminar propiedades que ya no se gestionen en la agencia. Mantiene el s
 RF5 - Búsqueda de Propiedades
 Permite filtrar propiedades por tipo, ubicación, precio y número de habitaciones. Ayuda a los clientes a encontrar justo lo que buscan.
 
-## GESTIÓN DE PROPIETARIOS Y CLIENTES
+**GESTIÓN DE PROPIETARIOS Y CLIENTES**
 RF6 - Registro de Propietarios y Clientes
 Permite registrar sus datos personales como nombre, ID, contacto, dirección, presupuesto, etc. Esencial para relacionarlos con propiedades y contratos.
 
@@ -62,7 +62,7 @@ Permite editar información como presupuesto o número de propiedades. Important
 RF9 - Eliminación de Propietarios y Clientes
 Permite borrar registros cuando ya no se usen o si deciden no continuar. Evita saturar el sistema con datos innecesarios.
 
-## GESTIÓN DE CONTRATOS
+**GESTIÓN DE CONTRATOS**
 RF10 - Creación de Contratos
 Permite generar contratos entre propietario y cliente, incluyendo tipo, fechas, duración, monto, condiciones y estado. Formaliza el acuerdo entre las partes con trazabilidad.
 
@@ -79,38 +79,38 @@ Contratobase (clase abstracta) -> ContratoCompra, Contratoventa, ContratoArriend
 
 ## JUSTIFICACIÓN DE DISEÑO: 
 
-## Clase Base Concreta (Persona)
+**Clase Base Concreta (Persona)**
 
 Se definió como una clase base concreta porque tanto propietarios como clientes comparten atributos y comportamientos comunes, como identificación, nombre, teléfono y correo. Al hacerla concreta: Se evita duplicación de código, se permite instanciar personas genéricas si fuese necesario y facilita el uso de herencia para extender funcionalidad en clases específicas.
 
-## Clases Concretas Derivadas (Propietario, Cliente)
+**Clases Concretas Derivadas (Propietario, Cliente)**
 
 Estas clases heredan de Persona y encapsulan comportamientos o atributos específicos.
 - Propietario puede tener una lista de propiedades asociadas.
 - Cliente puede tener un presupuesto y preferencias de búsqueda.
 - Permite aplicar **polimorfismo** y tratamiento diferenciado según el rol de la persona.
 
-## Clase Abstracta Intermedia (Propiedad)
+**Clase Abstracta Intermedia (Propiedad)**
 
 Se diseñó como una clase abstracta ya que representa un concepto general de propiedad inmobiliaria, pero no se pretende crear instancias directamente.
 - Encapsula atributos comunes como dirección, precio, área, número de habitaciones/baños y estado.
 - Define métodos abstractos (por ejemplo, calcular impuestos o mostrar detalles).
 - Obliga a las subclases (Apartamento, Casa, Lote, Oficina) a implementar comportamiento específico.
 - 
-## Clases Concretas Finales (Apartamento, Casa, Lote, Oficina)
+**Clases Concretas Finales (Apartamento, Casa, Lote, Oficina)**
 
 Estas representan tipos reales de propiedades con atributos o reglas particulares (por ejemplo, administración en apartamentos, área construida en casas, etc.).
 - Favorecen la extensibilidad si se agregan más tipos en el futuro.
 - Permiten especializar comportamiento sin romper la jerarquía general.
 
-## Clase Abstracta Intermedia (ContratoBase)
+**Clase Abstracta Intermedia (ContratoBase)**
 
 Define una estructura genérica para los contratos sin representar ningún contrato real.
 - Contiene atributos comunes (ID, tipo, duración, monto, estado).
 - Define métodos abstractos como validarContrato() o calcularMontoFinal().
 - Establece una plantilla común obligando a las subclases a definir su comportamiento específico.
 
-## Clases Concretas Finales (ContratoCompra, ContratoVenta, ContratoArriendo)
+**Clases Concretas Finales (ContratoCompra, ContratoVenta, ContratoArriendo)**
 
 Estas clases concretas heredan de ContratoBase e implementan la lógica y atributos específicos de cada tipo de contrato.
 - Cada tipo de contrato tiene reglas y datos distintos (por ejemplo, duración solo aplica a arriendo).
