@@ -24,7 +24,6 @@ ROLES:
 
 ROLES:
 - MANEJO DE EXCEPCIONES
-- EJEMPLO INTERFAZ GRÁFICA
 
 ## DESCRIPCIÓN DEL PROBLEMA: 
 Hoy en día, las agencias de finca raíz tienen muchos retos a la hora de organizar y manejar bien todas sus operaciones. Por ejemplo, deben gestionar muchas propiedades al mismo tiempo, llevar el control de la información de propietarios y clientes, y tener registrados todos los contratos de arriendo o venta. Además, necesitan ofrecer un servicio rápido, claro y cómodo tanto para los usuarios como para el personal de la agencia. Cuando no hay un sistema automatizado, todo esto se vuelve más complicado. Es difícil saber qué propiedades están disponibles, acceder a información actualizada, y los clientes no pueden buscar fácilmente lo que necesitan. También se pierde el control sobre los contratos, los pagos o cuándo se vencen. Por eso, proponemos desarrollar una aplicación que permita a la agencia tener un control completo de todo lo que maneja, haciendo que el trabajo interno sea más organizado y que la experiencia del usuario sea mucho mejor.
