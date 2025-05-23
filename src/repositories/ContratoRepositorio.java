@@ -71,8 +71,49 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
 
     @Override
     public boolean updateData(CentroContratos centroContratos) {
+        ArrayList<CentroContratos> contratos = getData();
+        ArrayList<String> lineasActualizadas = new ArrayList<>();
+        boolean encontrado = false;
+
+        for (CentroContratos c : contratos) {
+            if (c.getId() == centroContratos.getId()) {
+                // Construir la línea actualizada
+                String propietario;
+                if (centroContratos.getPersona() == null) {
+                    propietario = "Sin propietario";
+                } else {
+                    propietario = centroContratos.getPersona().getNombre();
+                }
+
+                String linea = centroContratos.getId() + "|" + centroContratos.getTipo() + "|" +
+                        centroContratos.getMonto() + "|" + centroContratos.getEstado() + "|" +
+                        centroContratos.getNotaria() + "|" + propietario;
+
+                lineasActualizadas.add(linea);
+                encontrado = true;
+            } else {
+                // Mantener la línea original
+                String propietario;
+                if (c.getPersona() == null) {
+                    propietario = "Sin propietario";
+                } else {
+                    propietario = c.getPersona().getNombre();
+                }
+
+                String linea = c.getId() + "|" + c.getTipo() + "|" +
+                        c.getMonto() + "|" + c.getEstado() + "|" +
+                        c.getNotaria() + "|" + propietario;
+
+                lineasActualizadas.add(linea);
+            }
+        }
+
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasActualizadas);
+        }
         return false;
     }
+
 
     @Override
     public boolean deleteData(int id) {

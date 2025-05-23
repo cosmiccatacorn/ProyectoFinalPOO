@@ -95,8 +95,87 @@ public class PropiedadRepositorio extends Repositorio implements IRepositorio<Pr
 
     @Override
     public boolean updateData(Propiedad propiedad) {
+        ArrayList<Propiedad> propiedades = getData();
+        ArrayList<String> lineasActualizadas = new ArrayList<>();
+        boolean encontrado = false;
+
+        for (Propiedad p : propiedades) {
+            if (p.getId() == propiedad.getId()) {
+                String linea = propiedad.getId() + "|" + propiedad.getTipo() + "|" +
+                        propiedad.getDireccion() + "|" + propiedad.getEstado() + "|" +
+                        propiedad.getPrecio() + "|" + propiedad.getAreaMSq();
+
+                if (propiedad instanceof Casa) {
+                    Casa casa = (Casa) propiedad;
+                    linea += "|" + casa.getNumeroCasa() + "|" +
+                            casa.getNumHabitaciones() + "|" +
+                            casa.getNumPisos() + "|" +
+                            casa.getNumBanos();
+                } else {
+                    if (propiedad instanceof Apartamento) {
+                        Apartamento apto = (Apartamento) propiedad;
+                        linea += "|" + apto.getIdApartamento() + "|" +
+                                apto.getEdificio() + "|" +
+                                apto.getNumBanos() + "|" +
+                                apto.getNumHabitaciones();
+                    } else {
+                        if (propiedad instanceof Lote) {
+                            Lote lote = (Lote) propiedad;
+                            linea += "|" + lote.getTipoDeLicencia();
+                        } else {
+                            if (propiedad instanceof Oficina) {
+                                Oficina oficina = (Oficina) propiedad;
+                                linea += "|" + oficina.getPiso() + "|" +
+                                        oficina.getHasBano();
+                            }
+                        }
+                    }
+                }
+
+                lineasActualizadas.add(linea);
+                encontrado = true;
+            } else {
+                String linea = p.getId() + "|" + p.getTipo() + "|" +
+                        p.getDireccion() + "|" + p.getEstado() + "|" +
+                        p.getPrecio() + "|" + p.getAreaMSq();
+
+                if (p instanceof Casa) {
+                    Casa casa = (Casa) p;
+                    linea += "|" + casa.getNumeroCasa() + "|" +
+                            casa.getNumHabitaciones() + "|" +
+                            casa.getNumPisos() + "|" +
+                            casa.getNumBanos();
+                } else {
+                    if (p instanceof Apartamento) {
+                        Apartamento apto = (Apartamento) p;
+                        linea += "|" + apto.getIdApartamento() + "|" +
+                                apto.getEdificio() + "|" +
+                                apto.getNumBanos() + "|" +
+                                apto.getNumHabitaciones();
+                    } else {
+                        if (p instanceof Lote) {
+                            Lote lote = (Lote) p;
+                            linea += "|" + lote.getTipoDeLicencia();
+                        } else {
+                            if (p instanceof Oficina) {
+                                Oficina oficina = (Oficina) p;
+                                linea += "|" + oficina.getPiso() + "|" +
+                                        oficina.getHasBano();
+                            }
+                        }
+                    }
+                }
+
+                lineasActualizadas.add(linea);
+            }
+        }
+
+        if (encontrado) {
+            return fileManager.rewriteFile(lineasActualizadas);
+        }
         return false;
     }
+
 
     @Override
     public boolean deleteData(int id) {
