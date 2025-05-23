@@ -1,11 +1,10 @@
-//CATALINA 0
-import DAOs.ClienteDAO;
-import entities.*;
-import repositories.ContratoRepositorio;
-import services.App;
+//MARIANA CATALINA SANDOVAL PEREZ
+//ELIOHT THOMAS GOMEZ MORALES
+//DAVID SANTIAGO MURCIA BARRERA
+//MARIANA CUADROS ARENA
 
-import java.util.List;
-//comentario
+import entities.*;
+import services.App;
 
 public class Main {
     public static void main(String[] args) {
