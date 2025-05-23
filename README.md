@@ -271,13 +271,131 @@ public interface ICliente<T> {
 
 EXPLICACIÓN: Las interfaces del sistema definen contratos que deben seguir las clases que las implementan. IDAO<T> establece métodos CRUD genéricos y es implementada por todas las clases DAO, garantizando una estructura uniforme. ICliente<T> define operaciones específicas para clientes y permite modularidad al separar la lógica cliente del resto. Por su parte, IContrato e IRepositorio<T> organizan comportamientos clave relacionados con la gestión de contratos y acceso a archivos, respectivamente. Todas las interfaces contribuyen a la abstracción y desacoplamiento del sistema.
 
-4. 
+**4. SERVICES:**
+
+public class ContratoService {
+
+    private final ArrayList<Contrato> lista = new ArrayList<>();
+    private final UsuarioService usuariosService;
+
+    public ContratoService(UsuarioService usuariosService) {
+        this.usuariosService = usuariosService;
+    }
+
+    public void registrarContratoCliente() {
+        System.out.println("La persona ya está registrada?");
+        boolean ans = Verificacion.booleano("(s/n): ");
+        if (!ans) {
+            usuariosService.registrarCliente();
+        }
+
+        int idp = Verificacion.enteroMayorQue("ID: ", 0);
+        Persona p = usuariosService.searchCliente(idp);
+
+        int id = agregarContrato("ID: ");
+        String tipo = Verificacion.cadena("Tipo de contrato: ");
+        double monto = Verificacion.doubleMayorQue("Monto: ", 0);
+        String estado = Verificacion.cadena("Estado: ");
+        String notaria = Verificacion.cadena("Notaría: ");
+
+        lista.add(new Contrato(id, tipo, monto, estado, notaria, p));
+        System.out.println("→ Contrato registrado.\n");
+    }
+}
+
+EXPLICACIÓN: El sistema cuenta con seis clases de servicio (Services) que manejan la lógica de negocio y la interacción entre las entidades y los usuarios. Estas son: App, que es la clase principal encargada de ejecutar la aplicación y coordinar las diferentes operaciones; ContratoService, que gestiona el registro, actualización, consulta y eliminación de contratos, asegurándose de validar la existencia de clientes mediante el uso de UsuarioService; PersonaService, que administra las operaciones relacionadas con las personas en el sistema; PropiedadService, encargado de la gestión de las propiedades; UsuarioService, que maneja la administración y validación de usuarios; y por último, Verificacion, que contiene métodos auxiliares para validar entradas y datos ingresados por el usuario. Todos estos servicios siguen una estructura organizada que permite realizar operaciones CRUD, validar datos y mantener la integridad de la información dentro del sistema.
+
+**5. PERSISTANCE**
+
+public class FileManager {
+    private String pathFile;
+
+    public FileManager(String pathFile){
+        this.pathFile = pathFile;
+    }
+
+    public File getFile(){
+        return new File(this.pathFile);
+    }
+
+    public ArrayList<String> getDataFile(){
+        ArrayList<String> lines = null;
+        try {
+            File file = this.getFile();
+            if (file.exists()){
+                lines = new ArrayList<>();
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(this.getFile()));
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null){
+                    lines.add(line);
+                }
+            }
+        }catch (IOException e){
+            e.printStackTrace(System.out);
+        }
+        return lines;
+    }
+
+EXPLICACIÓN: La clase FileManager se encarga de la gestión de archivos para la persistencia de datos en el sistema. Su función principal es manejar la ruta del archivo, leer su contenido línea por línea y devolverlo como una lista de cadenas. Incluye métodos para obtener el archivo y extraer sus datos, asegurando una lectura segura mediante manejo de excepciones. Esta clase es utilizada por los repositorios para acceder a la información almacenada en archivos de texto y facilitar la manipulación de datos persistentes en la aplicación.
+
+**6. REPOSITORIOS**
 
 
+public class ClienteRepositorio extends Repositorio implements IRepositorio<Cliente> {
 
+    public ClienteRepositorio(String path) {
+        super(path, "|");
+    }
 
+    @Override
+    public ArrayList<Cliente> getData() {
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<String> lines = this.fileManager.getDataFile();
+        if (lines != null) {
+            for (String line : lines) {
+                StringTokenizer tokens = new StringTokenizer(line, this.delimitador);
+                // Parseo de tokens para crear el objeto Cliente
+            }
+        }
+        return clientes;
+    }
 
+    @Override
+    public void insertData(Cliente p) {
+        String line = p.getId() + "|" + p.getNombre() + "|" + p.getApellido() + "|" + p.getCedula();
+        this.fileManager.writeFile(line);
+    }
+    
+   ...Métodos updateData y deleteData con lógica similar adaptada para la entidad Cliente
+}
 
+EXPLICACIÓN: El proyecto cuenta con cinco repositorios: ClienteRepositorio, ContratoRepositorio, PropiedadRepositorio, PropietarioRepositorio y una clase base llamada Repositorio. Todos gestionan la persistencia de datos mediante archivos de texto delimitados, implementando operaciones básicas CRUD. La clase base Repositorio centraliza la gestión del archivo y el delimitador, mientras que cada repositorio específico se encarga de transformar las líneas en objetos y viceversa, facilitando así la manipulación y almacenamiento de datos de cada entidad.
+
+**7. MAIN**
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Iniciar el menu
+        App menu = new services.App();
+        try {
+            menu.run();
+        } catch (NullPointerException e) {
+            System.out.println("El objeto al que se quiere acceder es nulo");
+        }catch (NumberFormatException e){
+            System.out.println("Error de formato");
+        }        catch (Exception e) {
+            System.out.println("Error surgido de tipo: " + e.getClass());
+        }
+
+    }
+}
+
+EXPLICACIÓN: La clase Main es el punto de inicio del programa. En el método main, se crea un objeto de la clase App, que se encarga de mostrar el menú y manejar lo que el usuario quiere hacer. Luego se llama al método run() para comenzar a ejecutar el programa. Además, se usan bloques try-catch para controlar errores comunes, como cuando se intenta usar algo que no existe (NullPointerException), o cuando se escribe un número en un formato incorrecto (NumberFormatException). También hay un bloque general para atrapar cualquier otro error inesperado, mostrando mensajes claros para ayudar a entender qué pasó. De esta manera, el programa puede funcionar sin cerrarse de repente y avisar si algo no salió bien.
+
+## RESULTADO FINAL DEL CÓDIGO PARA EL USUARIO: 
+
+El sistema funciona mediante un menú interactivo que se muestra cuando el programa arranca. Este menú permite que el usuario elija qué acción quiere realizar, como agregar un nuevo cliente, registrar un contrato, consultar información o actualizar datos existentes. Cuando el usuario selecciona una opción, el programa le pide que ingrese los datos necesarios, por ejemplo, el nombre del cliente, el tipo de contrato, o el ID de una propiedad. Para facilitar esto, se usan métodos de verificación que ayudan a validar que la información ingresada sea correcta y evitar errores, como asegurarse que un número sea positivo o que un texto no esté vacío. Además, si el usuario intenta hacer algo que no existe, como buscar un contrato que no está registrado, el sistema le muestra mensajes claros para que sepa qué ocurrió. También hay controles para evitar que el usuario ingrese datos repetidos, por ejemplo, IDs duplicados. Todo esto sucede de forma sencilla y ordenada para que el usuario pueda manejar la información sin complicaciones y el sistema responda de manera segura ante posibles errores. Así, la experiencia de uso es práctica y confiable.
 
 ## DEMOSTRACIÓN DE CONCEPTOS POO 
 El sistema desarrollado refleja claramente los pilares de la Programación Orientada a Objetos (POO) en su diseño e implementación:
