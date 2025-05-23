@@ -92,4 +92,14 @@ public class PropiedadRepositorio extends Repositorio implements IRepositorio<Pr
             System.out.println("Ha ocurrido un error!");
         }
     }
+
+    @Override
+    public boolean updateData(Propiedad propiedad) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteData(int id) {
+        return false;
+    }
 }

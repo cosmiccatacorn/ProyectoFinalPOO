@@ -68,4 +68,14 @@ public class ContratoRepositorio extends Repositorio implements IRepositorio<Cen
 
 
     }
+
+    @Override
+    public boolean updateData(CentroContratos centroContratos) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteData(int id) {
+        return false;
+    }
 }
