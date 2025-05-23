@@ -1,7 +1,7 @@
 
 # Marco de Trabajo para Sistema de gestión inmobiliaria: Documentación Completa
 
-## PRESENTACIÓN DEL EQUIPO: 
+## 1. PRESENTACIÓN DEL EQUIPO: 
 
 **1. CATALINA SANDOVAL**
 
@@ -25,14 +25,14 @@ ROLES:
 ROLES:
 - MANEJO DE EXCEPCIONES
 
-## DESCRIPCIÓN DEL PROBLEMA: 
+## 2. DESCRIPCIÓN DEL PROBLEMA: 
 Hoy en día, las agencias de finca raíz tienen muchos retos a la hora de organizar y manejar bien todas sus operaciones. Por ejemplo, deben gestionar muchas propiedades al mismo tiempo, llevar el control de la información de propietarios y clientes, y tener registrados todos los contratos de arriendo o venta. Además, necesitan ofrecer un servicio rápido, claro y cómodo tanto para los usuarios como para el personal de la agencia. Cuando no hay un sistema automatizado, todo esto se vuelve más complicado. Es difícil saber qué propiedades están disponibles, acceder a información actualizada, y los clientes no pueden buscar fácilmente lo que necesitan. También se pierde el control sobre los contratos, los pagos o cuándo se vencen. Por eso, proponemos desarrollar una aplicación que permita a la agencia tener un control completo de todo lo que maneja, haciendo que el trabajo interno sea más organizado y que la experiencia del usuario sea mucho mejor.
 
-## OBJETIVO DEL PROYECTO: 
+## 3. OBJETIVO DEL PROYECTO: 
 
 Desarrollar en un periodo de 3 semanas una aplicación orientada a objetos que permita gestionar propiedades, clientes y contratos en una agencia de finca raíz para mejorar la eficiencia y organización de la información.
 
-## OBJETIVOS PRINCIPALES:
+## 3.1 OBJETIVOS PRINCIPALES:
 * Diseñar e implementar las clases principales y las secundarias y modelar las relaciones y la multiplicidad en un Diagrama de UML.  SEMANA 1 - SEMANA 2
 Permitir el registro, consulta, edición y eliminación de propiedades. SEMANA 1 - SEMANA 2
 * Implementar la funcionalidad para gestionar la información de propietarios y clientes (registro, consulta y edición). SEMANA 2
@@ -40,7 +40,7 @@ Permitir el registro, consulta, edición y eliminación de propiedades. SEMANA 1
 * Aplicar los principios de encapsulamiento, herencia y polimorfismo en la estructura del código durante toda la fase de implementación.
 * Diseñar una interfaz funcional y sencilla que permita interactuar con el sistema.
 
-## PROBLEMAS A SOLUCIONAR: 
+## 4. PROBLEMAS A SOLUCIONAR: 
 El sistema de gestión inmobiliaria enfrenta varios desafíos que este marco de trabajo aborda: 
 1. Desorganización en la gestión de propiedades: las agencias manejan muchas propiedades y sin un sistema, es difícil tener control sobre cuál está disponible, arrendada o vendida.
 2. Dificultad para buscar propiedades adecuadas: los clientes tienen que revisar muchas opciones sin filtros adecuados.
@@ -48,9 +48,9 @@ El sistema de gestión inmobiliaria enfrenta varios desafíos que este marco de 
 4. Falta de trazabilidad de contratos: No hay seguimiento claro de contratos de arriendo o venta, sus fechas, duración o estados.
 5. Ineficiencia en el proceso de atención al cliente: sin automatización, responder dudas o actualizar información toma más tiempo.
 
-## REQUERIMIENTOS FUNCIONALES:
+## 5. REQUERIMIENTOS FUNCIONALES:
 
-**GESTIÓN DE PROPIEDADES**
+**5.1 GESTIÓN DE PROPIEDADES**
 
 RF1 - Registro de Propiedades
 Permite registrar nuevas propiedades con datos como tipo, ubicación, precio, área, habitaciones, baños, disponibilidad y estado. Clave para tener un inventario completo desde el inicio.
@@ -67,7 +67,7 @@ Permite eliminar propiedades que ya no se gestionen en la agencia. Mantiene el s
 RF5 - Búsqueda de Propiedades
 Permite filtrar propiedades por tipo, ubicación, precio y número de habitaciones. Ayuda a los clientes a encontrar justo lo que buscan.
 
-**GESTIÓN DE PROPIETARIOS Y CLIENTES**
+**5.2 GESTIÓN DE PROPIETARIOS Y CLIENTES**
 
 RF6 - Registro de Propietarios y Clientes
 Permite registrar sus datos personales como nombre, ID, contacto, dirección, presupuesto, etc. Esencial para relacionarlos con propiedades y contratos.
@@ -81,14 +81,14 @@ Permite editar información como presupuesto o número de propiedades. Important
 RF9 - Eliminación de Propietarios y Clientes
 Permite borrar registros cuando ya no se usen o si deciden no continuar. Evita saturar el sistema con datos innecesarios.
 
-**GESTIÓN DE CONTRATOS**
+**5.3 GESTIÓN DE CONTRATOS**
 
 RF10 - Creación de Contratos
 Permite generar contratos entre propietario y cliente, incluyendo tipo, fechas, duración, monto, condiciones y estado. Formaliza el acuerdo entre las partes con trazabilidad.
 
-## ARQUITECTURA Y DECISIONES DE DISEÑO 
+## 6. ARQUITECTURA Y DECISIONES DE DISEÑO 
 
-## JERARQUÍA DE CLASES 
+## 6.1 JERARQUÍA DE CLASES 
 
 La arquitectura se basa en una jerarquía de clases cuidadosamente diseñada: 
 
@@ -97,7 +97,7 @@ Persona (clase base) -> Propietario y Cliente (clases hijas).
 Propiedad (clase abstracta) -> Apartamento, Casa, Lote, Oficina (clases hijas). 
 Contratobase (clase abstracta) -> ContratoCompra, Contratoventa, ContratoArriendo (clases hijas). 
 
-## JUSTIFICACIÓN DE DISEÑO: 
+## 6.2 JUSTIFICACIÓN DE DISEÑO: 
 
 **Clase Base Concreta (Persona)**
 
@@ -138,7 +138,7 @@ Estas clases concretas heredan de ContratoBase e implementan la lógica y atribu
 
 Esta arquitectura favorece la reusabilidad, cohesión y el uso correcto de la herencia y el polimorfismo, haciendo el sistema escalable y mantenible.
 
-## INTERFACES: 
+## 6.3 INTERFACES: 
 
 El diseño incluye 4 interfaces principales: 
 
@@ -170,7 +170,7 @@ El diseño incluye 4 interfaces principales:
 - Métodos personalizados que no encajan en el CRUD básico.
 - Mejora la organización del acceso a datos y la cohesión del sistema al separar la persistencia genérica de las consultas orientadas al dominio.
 
-## RELACIONES ENTRE OBJETOS: 
+## 7. RELACIONES ENTRE OBJETOS: 
 El diseño del sistema implementa diversos tipos de relaciones orientadas a objetos, lo que permite una arquitectura flexible, modular y coherente con los principios de diseño orientado a objetos:
 
 **Herencia** Relación "es un" establecida entre las clases base y sus respectivas subclases:
@@ -203,7 +203,7 @@ La agregación ayuda a modelar relaciones de "tiene un" sin dependencia de ciclo
 - Propiedad ▣─ ContratoBase: Cada contrato (compra, venta o arriendo) está completamente ligado a una propiedad específica. Si una propiedad se elimina del sistema, sus contratos asociados también dejan de existir.
 Esta relación modela que los contratos no tienen sentido por sí solos, sino únicamente como parte de la gestión de una propiedad.
 
-## EXPLICACIÓN DETALLADA DEL CODIGO
+## 8. EXPLICACIÓN DETALLADA DEL CODIGO
 
 **1: DAOs**
 
@@ -393,11 +393,11 @@ public class Main {
 
 EXPLICACIÓN: La clase Main es el punto de inicio del programa. En el método main, se crea un objeto de la clase App, que se encarga de mostrar el menú y manejar lo que el usuario quiere hacer. Luego se llama al método run() para comenzar a ejecutar el programa. Además, se usan bloques try-catch para controlar errores comunes, como cuando se intenta usar algo que no existe (NullPointerException), o cuando se escribe un número en un formato incorrecto (NumberFormatException). También hay un bloque general para atrapar cualquier otro error inesperado, mostrando mensajes claros para ayudar a entender qué pasó. De esta manera, el programa puede funcionar sin cerrarse de repente y avisar si algo no salió bien.
 
-## RESULTADO FINAL DEL CÓDIGO PARA EL USUARIO: 
+## 9. RESULTADO FINAL DEL CÓDIGO PARA EL USUARIO: 
 
 El sistema funciona mediante un menú interactivo que se muestra cuando el programa arranca. Este menú permite que el usuario elija qué acción quiere realizar, como agregar un nuevo cliente, registrar un contrato, consultar información o actualizar datos existentes. Cuando el usuario selecciona una opción, el programa le pide que ingrese los datos necesarios, por ejemplo, el nombre del cliente, el tipo de contrato, o el ID de una propiedad. Para facilitar esto, se usan métodos de verificación que ayudan a validar que la información ingresada sea correcta y evitar errores, como asegurarse que un número sea positivo o que un texto no esté vacío. Además, si el usuario intenta hacer algo que no existe, como buscar un contrato que no está registrado, el sistema le muestra mensajes claros para que sepa qué ocurrió. También hay controles para evitar que el usuario ingrese datos repetidos, por ejemplo, IDs duplicados. Todo esto sucede de forma sencilla y ordenada para que el usuario pueda manejar la información sin complicaciones y el sistema responda de manera segura ante posibles errores. Así, la experiencia de uso es práctica y confiable.
 
-## DEMOSTRACIÓN DE CONCEPTOS POO 
+## 10. DEMOSTRACIÓN DE CONCEPTOS POO 
 El sistema desarrollado refleja claramente los pilares de la Programación Orientada a Objetos (POO) en su diseño e implementación:
 
 1. Encapsulamiento: Los atributos de clases como Persona, Propiedad y ContratoBase son privados o protegidos, y su acceso está controlado mediante métodos get y set.La lógica interna, como el cálculo del monto total del contrato o la validación del estado de una propiedad, está contenida dentro de métodos públicos que encapsulan el comportamiento.
@@ -409,7 +409,7 @@ El sistema desarrollado refleja claramente los pilares de la Programación Orien
    - Agregación: Entre Propiedad y Persona (la propiedad hace referencia a un dueño, pero ambos pueden existir por separado).
    - Composición: Entre Propiedad y ContratoBase (un contrato no existe sin una propiedad asociada; si la propiedad se elimina, los contratos también).
   
-## EXTENSIBILIDAD
+## 11. EXTENSIBILIDAD
 El sistema está diseñado para ser modular y fácilmente extensible, permitiendo futuras adaptaciones sin alterar la arquitectura base:
 
 1. Nuevos tipos de propiedad: Es posible agregar nuevas clases como Bodega, TerrenoRural o LocalComercial simplemente extendiendo la clase abstracta Propiedad, heredando atributos y comportamientos comunes.
@@ -420,7 +420,7 @@ El sistema está diseñado para ser modular y fácilmente extensible, permitiend
 6. Separación de responsabilidades con interfaces (DAO y Repositorios): El uso de interfaces como IDAO e IRepositorio permite intercambiar o extender las implementaciones de acceso a datos sin modificar la lógica del dominio.
 7. Escalabilidad del modelo de negocio: La arquitectura admite la incorporación de nuevas funcionalidades como historial de contratos, reportes automáticos, o integración con plataformas externas mediante adaptadores que implementen las interfaces existentes.
 
-## CASO DE USO PRÁCTICO: 
+## 12. CASO DE USO PRÁCTICO: 
 La clase Main demuestra un caso de uso práctico y completo del sistema inmobiliario:
 
 1. Creación de personas: Se instancian objetos de tipo Propietario y Cliente, representando a los actores principales del sistema.
@@ -430,7 +430,7 @@ La clase Main demuestra un caso de uso práctico y completo del sistema inmobili
 5. Almacenamiento y consulta en repositorio: A través de interfaces como IRepositorio e IDAO, las entidades son almacenadas y recuperadas sin acoplamiento directo a una implementación específica.
 6. Recorrido polimórfico: Se recorre una colección heterogénea de propiedades o contratos utilizando referencias a clases base (Propiedad o ContratoBase), lo cual permite tratar uniformemente distintos tipos concretos.
 
-## CONCLUSIONES: 
+## 13. CONCLUSIONES: 
 
 El Marco de Trabajo para Gestión de Propiedades Inmobiliarias demuestra una arquitectura orientada a objetos bien estructurada que resuelve de manera eficaz los desafíos relacionados con la administración de propiedades, personas y contratos. A través del uso estratégico de interfaces, clases abstractas, y relaciones de herencia, composición, y asociación, el sistema establece una base sólida, extensible y mantenible para futuras aplicaciones inmobiliarias. Los principios fundamentales de la programación orientada a objetos se aplican de forma clara y coherente para: encapsular comportamientos específicos en clases responsables, reutilizar código mediante jerarquías de herencia bien definidas, definir contratos claros mediante interfaces y permitir polimorfismo.  Esta arquitectura facilita la implementación de nuevas funcionalidades, como nuevos tipos de contratos o propiedades, sin comprometer la estabilidad del sistema existente. En consecuencia, este marco puede servir como base robusta para el desarrollo de plataformas inmobiliarias escalables, adaptables tanto a aplicaciones empresariales como académicas.
 
