@@ -8,14 +8,14 @@
 3. THOMAS GOMEZ
 4. DAVID MURCIA
 
-## Descripción del problema: 
+## DESCRIPCIÓN DEL PROBLEMA: 
 Hoy en día, las agencias de finca raíz tienen muchos retos a la hora de organizar y manejar bien todas sus operaciones. Por ejemplo, deben gestionar muchas propiedades al mismo tiempo, llevar el control de la información de propietarios y clientes, y tener registrados todos los contratos de arriendo o venta. Además, necesitan ofrecer un servicio rápido, claro y cómodo tanto para los usuarios como para el personal de la agencia. Cuando no hay un sistema automatizado, todo esto se vuelve más complicado. Es difícil saber qué propiedades están disponibles, acceder a información actualizada, y los clientes no pueden buscar fácilmente lo que necesitan. También se pierde el control sobre los contratos, los pagos o cuándo se vencen. Por eso, proponemos desarrollar una aplicación que permita a la agencia tener un control completo de todo lo que maneja, haciendo que el trabajo interno sea más organizado y que la experiencia del usuario sea mucho mejor.
 
-## Objetivo del proyecto: 
+## OBJETIVO DEL PROYECTO: 
 
 Desarrollar en un periodo de 3 semanas una aplicación orientada a objetos que permita gestionar propiedades, clientes y contratos en una agencia de finca raíz para mejorar la eficiencia y organización de la información.
 
-## Objetivos principales:
+## OBJETIVOS PRINCIPALES:
 * Diseñar e implementar las clases principales y las secundarias y modelar las relaciones y la multiplicidad en un Diagrama de UML.  SEMANA 1 - SEMANA 2
 Permitir el registro, consulta, edición y eliminación de propiedades. SEMANA 1 - SEMANA 2
 * Implementar la funcionalidad para gestionar la información de propietarios y clientes (registro, consulta y edición). SEMANA 2
@@ -23,7 +23,7 @@ Permitir el registro, consulta, edición y eliminación de propiedades. SEMANA 1
 * Aplicar los principios de encapsulamiento, herencia y polimorfismo en la estructura del código durante toda la fase de implementación.
 * Diseñar una interfaz funcional y sencilla que permita interactuar con el sistema.
 
-## Problemas a solucionar: 
+## PROBLEMAS A SOLUCIONAR: 
 El sistema de gestión inmobiliaria enfrenta varios desafíos que este marco de trabajo aborda: 
 1. Desorganización en la gestión de propiedades: las agencias manejan muchas propiedades y sin un sistema, es difícil tener control sobre cuál está disponible, arrendada o vendida.
 2. Dificultad para buscar propiedades adecuadas: los clientes tienen que revisar muchas opciones sin filtros adecuados.
